@@ -1,0 +1,25 @@
+{
+    "name": "ElectricFederate",
+    "log_level": 1,
+    "core_type": "tcp",
+    "period": 60,
+    "uninterruptible": false,
+    "terminate_on_error": true,
+    "wait_for_current_time_update": true,
+    "subscriptions":[
+      {
+        "key":"pressure",
+        "type":"double",
+        "unit":"bar-g",
+        "global": true
+      }
+    ],
+    "publications":[
+       {
+        "key":"power",
+        "type":"double",
+        "unit":"MW",
+        "global": true
+       }
+    ]
+}
