@@ -14,12 +14,9 @@ namespace HelicsDotNetSender
 
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
             string netfolder = @"..\..\..\..\Networks\DemoAlt_disruption\";
-            string outputfolder = @"..\..\..\..\outputs\DemoAlt_disruption\";
+            string outputfolder = @"..\..\..\..\outputs\DemoAlt_disruption\";           
 
             Directory.CreateDirectory(outputfolder);
-
-            // Load mapping between gas nodes and power plants 
-            List<Mapping> MappingList = MappingFactory.GetMappingFromFile(netfolder + "Mapping.txt");
 
             // Get HELICS version
             Console.WriteLine($"Electric: Helics version ={h.helicsGetVersion()}");
@@ -44,16 +41,12 @@ namespace HelicsDotNetSender
             Console.WriteLine("Electric: Value federate created");
 
             // Register Publication and Subscription for coupling points
-            foreach (Mapping m in MappingList)
-            {
-                m.ElectricPub = h.helicsFederateRegisterGlobalTypePublication(vfed, "PUB_" + m.ElectricGenID, "double", "");
-                m.GasSubPth = h.helicsFederateRegisterSubscription(vfed, "PUB_Pth_" + m.GasNodeID, "");
-                m.GasSubPbar = h.helicsFederateRegisterSubscription(vfed, "PUB_Pbar_" + m.GasNodeID, "");
-
-                //Streamwriter for writing iteration results into file
-                m.sw = new StreamWriter(new FileStream(outputfolder + m.ElectricGen.Name + ".txt", FileMode.Create));
-                m.sw.WriteLine("tstep \t iter \t PG[MW] \t ThPow [MW] \t PGMAX [MW]");
-            }
+            SWIGTYPE_p_void ElectricPub = h.helicsFederateRegisterGlobalTypePublication(vfed, "ElectricPower", "double", "");
+            SWIGTYPE_p_void SubToGas = h.helicsFederateRegisterSubscription(vfed, "GasThermalPower", "");
+            
+            //Streamwriter for writing iteration results into file
+            StreamWriter sw = new StreamWriter(new FileStream(outputfolder + "ElectricOutputs.txt", FileMode.Create));
+            sw.WriteLine("tstep \t iter \t P[MW] \t Pnew [MW] \t PGMAX [MW]");
 
             // Set one second message interval
             double period = 1;
@@ -64,13 +57,6 @@ namespace HelicsDotNetSender
             double period_set = h.helicsFederateGetTimeProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_TIME_PERIOD);
             Console.WriteLine($"Time period: {period_set}");
 
-            // set number of HELICS time steps based on scenario
-            double total_time = 12;
-            Console.WriteLine($"Number of time steps in scenario: {total_time}");
-
-            double granted_time = 0;
-            double requested_time;
-
             // set max iteration at 20
             h.helicsFederateSetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS, 20);
             int iter_max = h.helicsFederateGetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS);
@@ -80,10 +66,21 @@ namespace HelicsDotNetSender
             h.helicsFederateEnterExecutingMode(vfed);
             Console.WriteLine("Electric: Entering execution mode");
 
+            // Synthetic data
+            double[] P = { 70, 50, 20, 80, 30, 100, 90, 65, 75, 70, 60, 50 };
+            // set number of HELICS time steps based on scenario
+            double total_time = P.Length;
+            Console.WriteLine($"Number of time steps in scenario: {total_time}");
+
+            double granted_time = 0;
+            double requested_time;
+
             // variables to control iterations
             Int16 Iter = 0;
-            List<TimeStepInfo> timestepinfo = new List<TimeStepInfo>();
-            List<NotConverged> notconverged = new List<NotConverged>();
+            List<TimeStepInfo> timestepinfo, notconverged, CurrentDiverged = new List<TimeStepInfo>();
+            TimeStepInfo currenttimestep = new TimeStepInfo() { timestep = 0, itersteps = 0 };
+
+            int TimeStep;
             bool IsRepeating = false;
             bool HasViolations = false;
 
@@ -97,12 +94,7 @@ namespace HelicsDotNetSender
             writer = new StreamWriter(ostrm);
             Console.SetOut(writer);
 #endif
-            TimeStepInfo currenttimestep = new TimeStepInfo() { timestep = 0, itersteps = 0 };
-            NotConverged CurrentDiverged = new NotConverged();
-            int TimeStep;
-
-
-            // Main function to be executed on the input data
+           // Main function to be executed on the input data
             for (TimeStep = 0; Iter < total_time; Iter++)
             {
                 // non-iterative time request here to block until both federates are done iterating the last time step

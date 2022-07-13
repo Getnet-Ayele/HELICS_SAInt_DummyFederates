@@ -17,9 +17,6 @@ namespace HelicsDotNetReceiver
 
             Directory.CreateDirectory(outputfolder);
 
-            // Load mapping between gas nodes and power plants 
-            List<Mapping> MappingList = MappingFactory.GetMappingFromFile(netfolder + "Mapping.txt");
-
             // Get HELICS version
             Console.WriteLine($"Gas: Helics version ={h.helicsGetVersion()}");
 
@@ -32,7 +29,7 @@ namespace HelicsDotNetReceiver
             h.helicsFederateInfoSetCoreName(fedinfo, "Gas Federate Core");
             h.helicsFederateInfoSetCoreTypeFromString(fedinfo, "tcp");
 
-             // Federate init string
+            // Federate init string
             Console.WriteLine("Gas: Setting Federate Info Init String");
             string fedinitstring = "--federates=1";
             h.helicsFederateInfoSetCoreInitString(fedinfo, fedinitstring);
@@ -43,16 +40,13 @@ namespace HelicsDotNetReceiver
             Console.WriteLine("Gas: Value federate created");
 
             // Register Publication and Subscription for coupling points
-            foreach (Mapping m in MappingList) {
-                m.GasPubPth = h.helicsFederateRegisterGlobalTypePublication(vfed, "PUB_Pth_" + m.GasNodeID, "double", "");
-                m.GasPubPbar = h.helicsFederateRegisterGlobalTypePublication(vfed, "PUB_Pbar_" + m.GasNodeID, "double", "");
+            SWIGTYPE_p_void GasPubPth = h.helicsFederateRegisterGlobalTypePublication(vfed, "GasThermalPower", "double", "");
+            SWIGTYPE_p_void SubToElectric = h.helicsFederateRegisterSubscription(vfed, "ElectricPower", "");
 
-                m.ElectricSub = h.helicsFederateRegisterSubscription(vfed, "PUB_" + m.ElectricGenID, "");
+            //Streamwriter for writing iteration results into file
+            StreamWriter sw = new StreamWriter(new FileStream(outputfolder + "GasThermalPowerOutputs.txt", FileMode.Create));
+            sw.WriteLine("tstep \t iter \t Pth[MW] \t PthNew [MW]");
 
-                //Streamwriter for writing iteration results into file
-                m.sw = new StreamWriter(new FileStream(outputfolder + m.GasNode.Name + ".txt", FileMode.Create));
-                m.sw.WriteLine("tstep \t iter \t P[bar-g] \t Q [sm3/s] \t ThPow [MW] ");
-            }
 
             // Set one second message interval
             double period = 1;
@@ -63,29 +57,33 @@ namespace HelicsDotNetReceiver
             double period_set = h.helicsFederateGetTimeProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_TIME_PERIOD);
             Console.WriteLine($"Time period: {period_set}");
 
-            // set number of HELICS time steps based on scenario
-            double total_time = 12;
-            Console.WriteLine($"Number of time steps in scenario: {total_time}");
-
-            double granted_time = 0;
-            double requested_time;
-
             // set max iteration at 20
             h.helicsFederateSetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS, 20);
             int iter_max = h.helicsFederateGetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS);
             Console.WriteLine($"Max iterations: {iter_max}");
 
-            // start initialization mode
-            //h.helicsFederateEnterInitializingMode(vfed);
-            //Console.WriteLine("Gas: Entering initialization mode");
-
             // enter execution mode
             h.helicsFederateEnterExecutingMode(vfed);
             Console.WriteLine("Gas: Entering execution mode");
 
+            // Synthetic data
+            double[] Pthermal = { 200, 200, 200, 200, 30, 200, 200, 200, 200, 200, 200, 200 };
+            double PthermalMax = 300;
+            double PthermalMin = 150;
+            // set number of HELICS time steps based on scenario
+            double total_time = Pthermal.Length;
+            Console.WriteLine($"Number of time steps in scenario: {total_time}");
+
+            double granted_time = 0;
+            double requested_time;
+
             Int16 Iter = 0;
             List<TimeStepInfo> timestepinfo = new List<TimeStepInfo>();
-            List<NotConverged> notconverged = new List<NotConverged>();
+            List<TimeStepInfo> notconverged = new List<TimeStepInfo>();
+            TimeStepInfo currenttimestep = new TimeStepInfo() { timestep = 0, itersteps = 0 };
+            TimeStepInfo CurrentDiverged = new TimeStepInfo() { timestep = 0, itersteps = 0 };
+
+            int TimeStep;
             bool IsRepeating = false;
             bool HasViolations = false;
 
@@ -99,9 +97,6 @@ namespace HelicsDotNetReceiver
             writer = new StreamWriter(ostrm);
             Console.SetOut(writer);
 #endif
-            TimeStepInfo currenttimestep = new TimeStepInfo() { timestep = 0, itersteps = 0 };
-            NotConverged CurrentDiverged = new NotConverged();
-            int TimeStep;
             // this function is called each time the SAInt solver state changes
             for (TimeStep = 0; TimeStep < total_time; TimeStep++)
             {
@@ -118,17 +113,14 @@ namespace HelicsDotNetReceiver
                 IsRepeating = !IsRepeating;
                 HasViolations = true;
 
-                foreach (Mapping m in MappingList)
-                {
-                    m.lastVal.Clear();
-                }
-                // Publishing initial available thermal power of zero MW and zero pressure difference
+               // Publishing initial available thermal power of zero MW and zero pressure difference
                 if (TimeStep == 0)
                 {
-                    MappingFactory.PublishAvailableThermalPower(granted_time - 1, Iter, MappingList);
+                    MappingFactory.PublishGasThermalPower(granted_time - 1, Iter);
                 }
                 // Set time step info
-                currenttimestep = new TimeStepInfo() { timestep = TimeStep, itersteps = 0 };
+                currenttimestep.timestep = TimeStep;
+                currenttimestep.itersteps = 0;
                 timestepinfo.Add(currenttimestep);
 
                 if (IsRepeating)
@@ -151,14 +143,15 @@ namespace HelicsDotNetReceiver
                         Console.WriteLine($"Granted time: {granted_time},  Iteration status: {helics_iter_status}");
 
                         // using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0 
-                        MappingFactory.PublishAvailableThermalPower(granted_time - 1, Iter, MappingList);
+                        MappingFactory.PublishGasThermalPower(granted_time - 1, Iter);
 
                         // get requested thermal power from connected gas plants, determine if there are violations
-                        HasViolations = MappingFactory.SubscribeToRequiredThermalPower(granted_time - 1, Iter, MappingList);
+                        HasViolations = MappingFactory.SubscribeToElectricPower(granted_time - 1, Iter);
 
                         if (Iter >= iter_max && HasViolations)
                         {
-                            CurrentDiverged = new NotConverged() { timestep = TimeStep, itersteps = Iter };
+                            CurrentDiverged.timestep = TimeStep;
+                            CurrentDiverged.itersteps = Iter;
                             notconverged.Add(CurrentDiverged);
                         }
 
@@ -171,7 +164,7 @@ namespace HelicsDotNetReceiver
             // request time for end of time + 1: serves as a blocking call until all federates are complete
             requested_time = total_time + 1;
             //Console.WriteLine($"Requested time: {requested_time}");
-            
+
             Console.WriteLine($"Requested time step: {requested_time}");
             granted_time = h.helicsFederateRequestTime(vfed, requested_time);
             Console.WriteLine($"Granted time: {granted_time}");
@@ -192,24 +185,24 @@ namespace HelicsDotNetReceiver
 
             using (FileStream fs = new FileStream(outputfolder + "TimeStepInfo_gas_federate.txt", FileMode.OpenOrCreate, FileAccess.Write))
             {
-                using (StreamWriter sw = new StreamWriter(fs))
+                using (StreamWriter sw2 = new StreamWriter(fs))
                 {
-                    sw.WriteLine("TimeStep \t IterStep");
+                    sw2.WriteLine("TimeStep \t IterStep");
                     foreach (TimeStepInfo x in timestepinfo)
                     {
-                        sw.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
+                        sw2.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
                     }
                 }
 
             }
             using (FileStream fs = new FileStream(outputfolder + "NotConverged_gas_federate.txt", FileMode.OpenOrCreate, FileAccess.Write))
             {
-                using (StreamWriter sw = new StreamWriter(fs))
+                using (StreamWriter sw2 = new StreamWriter(fs))
                 {
-                    sw.WriteLine("Date \t TimeStep \t IterStep");
-                    foreach (NotConverged x in notconverged)
+                    sw2.WriteLine("Date \t TimeStep \t IterStep");
+                    foreach (TimeStepInfo x in notconverged)
                     {
-                        sw.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
+                        sw2.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
                     }
                 }
             }
@@ -220,23 +213,14 @@ namespace HelicsDotNetReceiver
             else
             {
                 Console.WriteLine("Gas: the solution diverged at the following time steps:");
-                foreach (NotConverged x in notconverged)
-                { 
-                    Console.WriteLine($"Time-step {x.timestep}"); 
+                foreach (TimeStepInfo x in notconverged)
+                {
+                    Console.WriteLine($"Time-step {x.timestep}");
                 }
                 Console.WriteLine($"\n Gas: The total number of diverging time steps = { notconverged.Count }");
             }
 
-            foreach (Mapping m in MappingList)
-            {
-                if (m.sw != null)
-                {
-                    m.sw.Flush();
-                    m.sw.Close();
-                }
-            }
-      
             var k = Console.ReadKey();
-        }        
+        }
     }
 }
