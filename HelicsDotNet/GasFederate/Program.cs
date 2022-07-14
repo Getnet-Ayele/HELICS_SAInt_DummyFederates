@@ -152,13 +152,13 @@ namespace HelicsDotNetReceiver
                     {
                         HasViolations = false;
 
-                        if (val < 150)
+                        if (val < PthermalMin)
                         {
-                            PthermalNew = 150;
+                            PthermalNew = PthermalMin;
                         }
-                        else if (val > 300)
+                        else if (val > PthermalMax)
                         {
-                            PthermalNew = 300;
+                            PthermalNew = PthermalMax;
                         }
 
                         Pthermal[TimeStep] = PthermalNew;
