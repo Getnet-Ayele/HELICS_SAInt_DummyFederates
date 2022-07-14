@@ -10,7 +10,7 @@ namespace GasElectricBroker
         static void Main(string[] args)
         {
             string initBrokerString = "-f 2 --name=mainbroker";
-            Console.WriteLine($"GasElectricBroker: Helics version ={h.helicsGetVersion()}");
+            Console.WriteLine($"GasElectricBroker: HELICS version ={h.helicsGetVersion()}");
 
             //Create broker #
             Console.WriteLine("Creating Broker");

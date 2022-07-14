@@ -13,13 +13,11 @@ namespace HelicsDotNetSender
         {
 
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
-            string netfolder = @"..\..\..\..\Networks\DemoAlt_disruption\";
-            string outputfolder = @"..\..\..\..\outputs\DemoAlt_disruption\";           
-
+            string outputfolder = @"..\..\..\..\outputs\";
             Directory.CreateDirectory(outputfolder);
 
             // Get HELICS version
-            Console.WriteLine($"Electric: Helics version ={h.helicsGetVersion()}");
+            Console.WriteLine($"Electric: HELICS version ={h.helicsGetVersion()}");
 
             // Create Federate Info object that describes the federate properties
             Console.WriteLine("Electric: Creating Federate Info");
@@ -43,10 +41,7 @@ namespace HelicsDotNetSender
             // Register Publication and Subscription for coupling points
             SWIGTYPE_p_void ElectricPub = h.helicsFederateRegisterGlobalTypePublication(vfed, "ElectricPower", "double", "");
             SWIGTYPE_p_void SubToGas = h.helicsFederateRegisterSubscription(vfed, "GasThermalPower", "");
-            
-            //Streamwriter for writing iteration results into file
-            StreamWriter sw = new StreamWriter(new FileStream(outputfolder + "ElectricOutputs.txt", FileMode.Create));
-            sw.WriteLine("tstep \t iter \t P[MW] \t Pnew [MW] \t PGMAX [MW]");
+            SWIGTYPE_p_void SubToGasMin = h.helicsFederateRegisterSubscription(vfed, "GasThermalPowerMin", "");
 
             // Set one second message interval
             double period = 1;
@@ -76,9 +71,13 @@ namespace HelicsDotNetSender
             double requested_time;
 
             // variables to control iterations
-            Int16 Iter = 0;
-            List<TimeStepInfo> timestepinfo, notconverged, CurrentDiverged = new List<TimeStepInfo>();
+            short Iter = 0;
+            List<TimeStepInfo> timestepinfo = new List<TimeStepInfo>();
+            List<TimeStepInfo> notconverged = new List<TimeStepInfo>();
+            TimeStepInfo CurrentDiverged = new TimeStepInfo();
             TimeStepInfo currenttimestep = new TimeStepInfo() { timestep = 0, itersteps = 0 };
+
+            List<double> ElecLastVal = new List<double>();
 
             int TimeStep;
             bool IsRepeating = false;
@@ -94,69 +93,103 @@ namespace HelicsDotNetSender
             writer = new StreamWriter(ostrm);
             Console.SetOut(writer);
 #endif
-           // Main function to be executed on the input data
-            for (TimeStep = 0; Iter < total_time; Iter++)
+            // Main function to be executed on the input data
+            for (TimeStep = 0; TimeStep < total_time; TimeStep++)
             {
                 // non-iterative time request here to block until both federates are done iterating the last time step
-                Console.WriteLine($"Requested time {Iter}");
+                Console.WriteLine($"Requested time {TimeStep}");
 
                 // HELICS time granted 
                 granted_time = h.helicsFederateRequestTime(vfed, TimeStep);
                 Console.WriteLine($"Granted time: {granted_time}");
-                IsRepeating = !IsRepeating;
+                IsRepeating = true;
                 HasViolations = true;
 
-                // Reset nameplate capacity
-                foreach (Mapping m in MappingList)
-                {
-                    m.ElectricGen.PGMAX = m.NCAP;
-                    m.ElectricGen.PGMIN = 0;
-                    m.lastVal.Clear();
-                }
+
+                Iter = 0; // Iteration number
 
                 // Initial publication of thermal power request equivalent to PGMAX for time = 0 and iter = 0;
                 if (TimeStep == 0)
                 {
-                    MappingFactory.PublishRequiredThermalPower(granted_time - 1, TimeStep, MappingList);
+                    MappingFactory.PublishElectricPower(granted_time - 1, Iter, P[TimeStep], ElectricPub);
                 }
+
                 // Set time step info
                 currenttimestep = new TimeStepInfo() { timestep = TimeStep, itersteps = 0 };
                 timestepinfo.Add(currenttimestep);
 
-                if (IsRepeating)
+                while (IsRepeating && Iter<iter_max)
                 {
-                    // stop iterating if max iterations have been reached
-                    IsRepeating = (Iter < iter_max);
-                    if (IsRepeating)
+                    // stop iterating if max iterations have been reached                    
+                    Iter += 1;
+                    currenttimestep.itersteps += 1;
+
+                    int helics_iter_status;
+                    // iterative HELICS time request                    
+                    Console.WriteLine($"Requested time: {TimeStep}, iteration: {Iter}");
+                    // HELICS time granted
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
+                    Console.WriteLine($"Granted time: {TimeStep},  Iteration status: {helics_iter_status}");
+
+                    // Using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0                        
+                    MappingFactory.PublishElectricPower(granted_time - 1, Iter, P[TimeStep], ElectricPub);
+
+                    // get available thermal power at nodes, determine if there are violations
+                    HasViolations = MappingFactory.SubscribeToGasThermalPower(granted_time - 1, Iter, P[TimeStep], SubToGas, ElecLastVal);
+
+
+                    HasViolations = false;
+                    // subscribe to available thermal power from gas node
+                    double valPth = h.helicsInputGetDouble(SubToGas);
+                    double GasMin = h.helicsInputGetDouble(SubToGasMin);
+                    Console.WriteLine(String.Format("Electric-Received: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", TimeStep, Iter, valPth));
+
+                    //get currently required thermal power                 
+                    double HR = 5 + 0.5 * P[TimeStep] - 0.01 * P[TimeStep] * P[TimeStep];
+                    double ThermalPower = HR / 3.6 * P[TimeStep]; //Thermal power in [MW]; // eta_th=3.6/HR[MJ/kWh]
+
+                    ElecLastVal.Add(valPth);
+
+                    if (Math.Abs(ThermalPower - valPth) > 0.001)
                     {
-                        Iter += 1;
-                        currenttimestep.itersteps += 1;
-                        int helics_iter_status;
-                        // iterative HELICS time request                    
-                        Console.WriteLine($"Requested time: {TimeStep}, iteration: {Iter}");
-                        // HELICS time granted
-                        granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
-                        Console.WriteLine($"Granted time: {TimeStep},  Iteration status: {helics_iter_status}");
-                        // Using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0
-                        MappingFactory.PublishRequiredThermalPower(granted_time - 1, Iter, MappingList);
-                        // get available thermal power at nodes, determine if there are violations
-                        HasViolations = MappingFactory.SubscribeToAvailableThermalPower(granted_time - 1, Iter, MappingList);
-                        if (Iter == iter_max && HasViolations)
-                        {
-                            CurrentDiverged = new NotConverged() { timestep = TimeStep, itersteps = Iter };
-                            notconverged.Add(CurrentDiverged);
+                        if (GasMin <= 0)
+                        { 
+                            P[TimeStep] -=10; 
                         }
 
-                        IsRepeating = HasViolations;
+                        HasViolations = true;
                     }
+                    else
+                    {
+                        if (ElecLastVal.Count > 1)
+                        {
+                            if (Math.Abs(ElecLastVal[ElecLastVal.Count - 1] - ElecLastVal[ElecLastVal.Count - 2]) > 0.001)
+                            {
+                                HasViolations = true;
+                            }
+                        }
+                        else
+                        {
+                            HasViolations = true;
+                        }
+                    }
+
+
+                    if (Iter == iter_max && HasViolations)
+                    {
+                        CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
+                        notconverged.Add(CurrentDiverged);
+                    }
+
+                    IsRepeating = HasViolations;
                 }
             }
 
             // request time for end of time + 1: serves as a blocking call until all federates are complete
-            requested_time = total_time + 1;
+            requested_time = total_time;
             Console.WriteLine($"Requested time: {requested_time}");
-            granted_time = h.helicsFederateRequestTime(vfed, requested_time);
-            Console.WriteLine($"Granted time: {granted_time}");
+            h.helicsFederateRequestTime(vfed, requested_time);
+            
 
 #if !DEBUG
             // close out log file
@@ -174,12 +207,12 @@ namespace HelicsDotNetSender
 
             using (FileStream fs = new FileStream(outputfolder + "TimeStepInfo_electric_federate.txt", FileMode.OpenOrCreate, FileAccess.Write))
             {
-                using (StreamWriter sw = new StreamWriter(fs))
+                using (StreamWriter sw2 = new StreamWriter(fs))
                 {
-                    sw.WriteLine("TimeStep \t IterStep");
+                    sw2.WriteLine("TimeStep \t IterStep");
                     foreach (TimeStepInfo x in timestepinfo)
                     {
-                        sw.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
+                        sw2.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
                     }
                 }
 
@@ -187,12 +220,12 @@ namespace HelicsDotNetSender
 
             using (FileStream fs = new FileStream(outputfolder + "NotConverged_electric_federate.txt", FileMode.OpenOrCreate, FileAccess.Write))
             {
-                using (StreamWriter sw = new StreamWriter(fs))
+                using (StreamWriter sw2 = new StreamWriter(fs))
                 {
-                    sw.WriteLine("TimeStep \t IterStep");
-                    foreach (NotConverged x in notconverged)
+                    sw2.WriteLine("TimeStep \t IterStep");
+                    foreach (TimeStepInfo x in notconverged)
                     {
-                        sw.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
+                        sw2.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
                     }
                 }
 
@@ -204,20 +237,11 @@ namespace HelicsDotNetSender
             else
             {
                 Console.WriteLine("Electric: the solution diverged at the following time steps:");
-                foreach (NotConverged x in notconverged)
+                foreach (TimeStepInfo x in notconverged)
                 {
                     Console.WriteLine($"Time-step {x.timestep}");
                 }
                 Console.WriteLine($"\n Electric: The total number of diverging time steps = { notconverged.Count }");
-            }
-
-            foreach (Mapping m in MappingList)
-            {
-                if (m.sw != null)
-                {
-                    m.sw.Flush();
-                    m.sw.Close();
-                }
             }
 
             var k = Console.ReadKey();
