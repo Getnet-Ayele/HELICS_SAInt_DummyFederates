@@ -17,7 +17,7 @@ This user guide describes the steps for setting up and running the *SAInt_HELICS
   2. Go to the *Team* tab and then *Manage Connections*. Alternatively, you can also directly access this by opening the *Team Explorer* from the *View* tab. Also, open the *Solution Explorer* from the *View* tab if it is not opened.
   3. In the *Team Explorer*, go to *Local Git Repositories* and click *Clone*.
 
-  4. In the dialog box that opens, put the URL address of the SAInt_HELICS_interface. Browse the destination directory to point to your workspace folder. Then click *Clone* and wait until it is completed (see Figure 2). The link for the URL is: https://github.com/Getnet-Ayele/HELICS_SAInt_DummyFederates
+  4. In the dialog box that opens, put the URL address of the SAInt_HELICS_interface. Browse the destination directory to point to your workspace folder. Then click *Clone* and wait until it is completed. The link for the URL is: https://github.com/Getnet-Ayele/HELICS_SAInt_DummyFederates
 
   5. Once cloning is completed, the *HELICS_SAInt_DummyFederates* appears in your *Team Explorer*. 
    
