@@ -63,6 +63,10 @@ namespace HelicsDotNetSender
 
             // Synthetic data
             double[] P = { 70, 50, 20, 80, 30, 100, 90, 65, 75, 70, 60, 50 };
+            double[] POld = new double[P.Length];
+            double[] PNew = new double[P.Length];
+            Array.Copy(P, POld, P.Length);
+            Array.Copy(P, PNew, P.Length);
             // set number of HELICS time steps based on scenario
             double total_time = P.Length;
             Console.WriteLine($"Number of time steps in scenario: {total_time}");
@@ -120,6 +124,13 @@ namespace HelicsDotNetSender
 
                 while (IsRepeating && Iter<iter_max)
                 {
+
+                    // Artificial delay
+                    if (TimeStep > 5 && Iter==0)
+                    {
+                        Thread.Sleep(10);
+                    }
+
                     // stop iterating if max iterations have been reached                    
                     Iter += 1;
                     currenttimestep.itersteps += 1;
@@ -174,6 +185,7 @@ namespace HelicsDotNetSender
                         }
                     }
 
+                    PNew[TimeStep] = P[TimeStep];
 
                     if (Iter == iter_max && HasViolations)
                     {
@@ -230,6 +242,19 @@ namespace HelicsDotNetSender
                 }
 
             }
+
+            using (FileStream fs = new FileStream(outputfolder + "PelectricAndPelectricNew.txt", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (StreamWriter sw2 = new StreamWriter(fs))
+                {
+                    sw2.WriteLine("TimeStep\t PelectricOld[MW]\t PelectricNew[MW]");
+                    for (int t = 0; t < total_time; t++)
+                    {
+                        sw2.WriteLine(String.Format("{0}\t\t{1:0.00}\t\t{2:0.00}", t, POld[t], PNew[t]));
+                    }
+                }
+            }
+
 
             // Diverging time steps
             if (notconverged.Count == 0)

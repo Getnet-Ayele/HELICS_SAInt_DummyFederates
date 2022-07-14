@@ -62,8 +62,13 @@ namespace HelicsDotNetReceiver
 
             // Synthetic data
             double[] Pthermal = { 200, 200, 200, 200, 30, 200, 200, 200, 200, 200, 200, 200 };
+            double[] PthermalOld = new double[Pthermal.Length];
+            double[] PthermalNew = new double[Pthermal.Length];
+            Array.Copy(Pthermal, PthermalOld,Pthermal.Length);
+            Array.Copy(Pthermal, PthermalNew, Pthermal.Length);
+           
             double PthermalMax = 300;
-            double PthermalMin = 150;
+            double PthermalMin = 80;
             // set number of HELICS time steps based on scenario
             double total_time = Pthermal.Length;
             Console.WriteLine($"Number of time steps in scenario: {total_time}");
@@ -145,23 +150,25 @@ namespace HelicsDotNetReceiver
                     h.helicsPublicationPublishDouble(GasPubPthMin, val);
                     Console.WriteLine(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val));
 
-                    double PthermalNew = val;
-                    GasLastVal.Add(val);
+                   GasLastVal.Add(val);
 
                     if (Math.Abs(Pthermal[TimeStep] - val) > 0.001)
                     {
-                        HasViolations = false;
+                        HasViolations = true;
 
                         if (val < PthermalMin)
                         {
-                            PthermalNew = PthermalMin;
+                            Pthermal[TimeStep] = PthermalMin;
                         }
                         else if (val > PthermalMax)
                         {
-                            PthermalNew = PthermalMax;
+                            Pthermal[TimeStep] = PthermalMax;
                         }
 
-                        Pthermal[TimeStep] = PthermalNew;
+                        else
+                        { 
+                            Pthermal[TimeStep] = val; 
+                        }
 
                         Console.WriteLine(String.Format("Gas-Event: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, Pthermal[TimeStep]));
                     }
@@ -180,10 +187,11 @@ namespace HelicsDotNetReceiver
                         }
                     }
 
+                    PthermalNew[TimeStep] = Pthermal[TimeStep];
+
                     if (Iter >= iter_max && HasViolations)
                     {
-                        CurrentDiverged.timestep = TimeStep;
-                        CurrentDiverged.itersteps = Iter;
+                        CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
                         notconverged.Add(CurrentDiverged);
                     }
 
@@ -229,10 +237,22 @@ namespace HelicsDotNetReceiver
             {
                 using (StreamWriter sw2 = new StreamWriter(fs))
                 {
-                    sw2.WriteLine("Date \t TimeStep \t IterStep");
+                    sw2.WriteLine("TimeStep \t IterStep");
                     foreach (TimeStepInfo x in notconverged)
                     {
                         sw2.WriteLine(String.Format("{0}\t{1}", x.timestep, x.itersteps));
+                    }
+                }
+            }
+
+            using (FileStream fs = new FileStream(outputfolder + "PthermalAndPthermalNew.txt", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (StreamWriter sw2 = new StreamWriter(fs))
+                {
+                    sw2.WriteLine("TimeStep \t PthermalOld[MW]\t PthermalNew[MW] \tPthermalMin[MW]\t PthermalMax[MW]");
+                    for (int t=0;t <total_time; t++)
+                    {
+                        sw2.WriteLine(String.Format("{0}\t\t{1:0.00}\t\t{2:0.00}\t\t{3:0.00}\t\t{4:0.00}", t, PthermalOld[t],PthermalNew[t],PthermalMin,PthermalMax));
                     }
                 }
             }
