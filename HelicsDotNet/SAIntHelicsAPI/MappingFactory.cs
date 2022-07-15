@@ -69,33 +69,6 @@ namespace SAIntHelicsLib
             return HasViolations;
         }
 
-        public static double GetActivePowerFromAvailableThermalPower(double Pth, double initVal)
-        {
-            Func<double, double> GetHR = (x) => 5 + 0.5 * x - 0.01 * x * x;
-            Func<double, double> GetF = (x) => 3.6 * Pth - x * GetHR(x);
-            Func<double, double> GetdFdx = (x) => -(5 + 2 * 0.5 * x + 3 * (-0.01) * x * x);
-
-            double Res = Math.Abs(GetF(initVal));
-            int maxiter = 20;
-            int i = 0;
-            double p = initVal;
-
-            while (i < maxiter)
-            {
-                p -= GetF(p) / GetdFdx(p);
-
-                Res = Math.Abs(GetF(p));
-
-                if (Res < eps) { return p; }
-
-                i += 1;
-            }
-
-            return p;
-            //throw new Exception("No solution found for given thermal power");
-        }
-
-
     }
 
     public class TimeStepInfo
