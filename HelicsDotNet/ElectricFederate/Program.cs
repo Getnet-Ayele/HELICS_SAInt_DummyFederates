@@ -11,6 +11,9 @@ namespace HelicsDotNetSender
     {
         static void Main(string[] args)
         {
+            // Artificial delay
+            int delay = 100;
+            int AfterTimeStep = 5;
 
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
             string outputfolder = @"..\..\..\..\outputs\";
@@ -126,9 +129,9 @@ namespace HelicsDotNetSender
                 {
 
                     // Artificial delay
-                    if (TimeStep > 5 && Iter==0)
+                    if (TimeStep > AfterTimeStep && Iter==0)
                     {
-                        Thread.Sleep(10);
+                        Thread.Sleep(delay);
                     }
 
                     // stop iterating if max iterations have been reached                    
