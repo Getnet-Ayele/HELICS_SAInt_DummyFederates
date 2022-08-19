@@ -11,7 +11,7 @@ namespace SAIntHelicsLib
 
         public static void PublishElectricPower(double gtime, int step, double pval, SWIGTYPE_p_void ElectricPub)
         {
-            double HR = 5 + 0.5 * pval - 0.01 * pval * pval;
+            double HR = 5 + 0.5 * pval - 0 * pval * pval;
             // relation between thermal efficiency and heat rate: eta_th[-]=3.6/HR[MJ/kWh]
             double ThermalPower = HR / 3.6 * pval; //Thermal power in [MW]
 

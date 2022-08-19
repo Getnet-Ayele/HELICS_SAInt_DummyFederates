@@ -13,7 +13,7 @@ namespace HelicsDotNetSender
         {
             // Artificial delay
             int delay = 100;
-            int AfterTimeStep = 5;
+            int AfterTimeStep = 0;
 
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
             string outputfolder = @"..\..\..\..\outputs\";
@@ -154,21 +154,24 @@ namespace HelicsDotNetSender
 
                     HasViolations = false;
                     // subscribe to available thermal power from gas node
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
                     double valPth = h.helicsInputGetDouble(SubToGas);
+
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
                     double GasMin = h.helicsInputGetDouble(SubToGasMin);
                     Console.WriteLine(String.Format("Electric-Received: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", TimeStep, Iter, valPth));
 
                     //get currently required thermal power                 
-                    double HR = 5 + 0.5 * P[TimeStep] - 0.01 * P[TimeStep] * P[TimeStep];
+                    double HR = 5 + 0.5 * P[TimeStep] - 0 * P[TimeStep] * P[TimeStep];
                     double ThermalPower = HR / 3.6 * P[TimeStep]; //Thermal power in [MW]; // eta_th=3.6/HR[MJ/kWh]
 
                     ElecLastVal.Add(valPth);
 
                     if (Math.Abs(ThermalPower - valPth) > 0.001)
                     {
-                        if (GasMin <= 0)
+                        if (GasMin <= 0 && P[TimeStep]>10)
                         { 
-                            P[TimeStep] -=10; 
+                            P[TimeStep] -=5; 
                         }
 
                         HasViolations = true;

@@ -39,7 +39,7 @@ namespace HelicsDotNetReceiver
 
             // Register Publication and Subscription for coupling points
             SWIGTYPE_p_void GasPubPth = h.helicsFederateRegisterGlobalTypePublication(vfed, "GasThermalPower", "double", "");
-            SWIGTYPE_p_void GasPubPthMin = h.helicsFederateRegisterGlobalTypePublication(vfed, "GasThermalPowerMin", "double", "");
+            SWIGTYPE_p_void GasPubPthMax = h.helicsFederateRegisterGlobalTypePublication(vfed, "GasThermalPowerMin", "double", "");
             SWIGTYPE_p_void SubToElectric = h.helicsFederateRegisterSubscription(vfed, "ElectricPower", "");
 
             // Set one second message interval
@@ -67,8 +67,8 @@ namespace HelicsDotNetReceiver
             Array.Copy(Pthermal, PthermalOld,Pthermal.Length);
             Array.Copy(Pthermal, PthermalNew, Pthermal.Length);
            
-            double PthermalMax = 300;
-            double PthermalMin = 80;
+            double PthermalMax = 1000;
+            double PthermalMin = 100;
             // set number of HELICS time steps based on scenario
             double total_time = Pthermal.Length;
             Console.WriteLine($"Number of time steps in scenario: {total_time}");
@@ -145,9 +145,13 @@ namespace HelicsDotNetReceiver
                     // get requested thermal power from connected gas plants, determine if there are violations                        
                     HasViolations = false;
 
-                    // get publication from electric federate
+                    // get publication from electric federate and avoid negative Pthermal due to the negative cubic function (to be checked in the electric federate)
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
                     double val = h.helicsInputGetDouble(SubToElectric);
-                    h.helicsPublicationPublishDouble(GasPubPthMin, val);
+
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
+
+                    h.helicsPublicationPublishDouble(GasPubPthMax, (PthermalMax-val));
                     Console.WriteLine(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val));
 
                    GasLastVal.Add(val);
