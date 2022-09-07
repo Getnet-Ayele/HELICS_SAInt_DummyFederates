@@ -12,7 +12,7 @@ namespace HelicsDotNetSender
         static void Main(string[] args)
         {
             // Artificial delay
-            int delay = 100;
+            int delay = 0;
             int AfterTimeStep = 0;
 
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
@@ -143,18 +143,19 @@ namespace HelicsDotNetSender
                     Console.WriteLine($"Requested time: {TimeStep}, iteration: {Iter}");
                     // HELICS time granted
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
-                    Console.WriteLine($"Granted time: {TimeStep},  Iteration status: {helics_iter_status}");
+                    Console.WriteLine($"Granted time: {granted_time},  Iteration status: {helics_iter_status}");
 
                     // Using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0                        
                     MappingFactory.PublishElectricPower(granted_time - 1, Iter, P[TimeStep], ElectricPub);
 
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
                     // get available thermal power at nodes, determine if there are violations
                     HasViolations = MappingFactory.SubscribeToGasThermalPower(granted_time - 1, Iter, P[TimeStep], SubToGas, ElecLastVal);
 
 
                     HasViolations = false;
                     // subscribe to available thermal power from gas node
-                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
+                   granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
                     double valPth = h.helicsInputGetDouble(SubToGas);
 
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
@@ -169,7 +170,7 @@ namespace HelicsDotNetSender
 
                     if (Math.Abs(ThermalPower - valPth) > 0.001)
                     {
-                        if (GasMin <= 0 && P[TimeStep]>10)
+                        if (GasMin < 0 && P[TimeStep]>10)
                         { 
                             P[TimeStep] -=5; 
                         }

@@ -117,7 +117,8 @@ namespace HelicsDotNetReceiver
                 // Publishing initial available thermal power of zero MW and zero pressure difference
                 if (TimeStep == 0)
                 {
-                    MappingFactory.PublishGasThermalPower(granted_time - 1, Iter, Pthermal[TimeStep], GasPubPth);
+                    MappingFactory.PublishGasThermalPower(granted_time - 1, Iter, PthermalMax, GasPubPth);
+                    h.helicsPublicationPublishDouble(GasPubPthMax, 1);
                 }
                 // Set time step info
                 currenttimestep = new TimeStepInfo() { timestep = TimeStep, itersteps = 0 };
@@ -135,13 +136,6 @@ namespace HelicsDotNetReceiver
                     // iterative HELICS time request                        
                     Console.WriteLine($"Requested time: {TimeStep}, iteration: {Iter}");
 
-                    // HELICS time granted 
-                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
-                    Console.WriteLine($"Granted time: {granted_time},  Iteration status: {helics_iter_status}");
-
-                    // using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0 
-                    MappingFactory.PublishGasThermalPower(granted_time - 1, Iter, Pthermal[TimeStep], GasPubPth);
-
                     // get requested thermal power from connected gas plants, determine if there are violations                        
                     HasViolations = false;
 
@@ -150,7 +144,6 @@ namespace HelicsDotNetReceiver
                     double val = h.helicsInputGetDouble(SubToElectric);
 
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
-
                     h.helicsPublicationPublishDouble(GasPubPthMax, (PthermalMax-val));
                     Console.WriteLine(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val));
 
@@ -190,6 +183,12 @@ namespace HelicsDotNetReceiver
                             HasViolations = true;
                         }
                     }
+
+                    // HELICS time granted 
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION, out helics_iter_status);
+                    Console.WriteLine($"Granted time: {granted_time},  Iteration status: {helics_iter_status}");
+                    // using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0 
+                    MappingFactory.PublishGasThermalPower(granted_time - 1, Iter, Pthermal[TimeStep], GasPubPth);
 
                     PthermalNew[TimeStep] = Pthermal[TimeStep];
 
