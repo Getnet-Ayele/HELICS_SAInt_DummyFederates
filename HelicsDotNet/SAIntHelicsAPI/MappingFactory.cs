@@ -17,28 +17,29 @@ namespace SAIntHelicsLib
 
             h.helicsPublicationPublishDouble(ElectricPub, ThermalPower);
 
-            Console.WriteLine(String.Format("Electric-Sen: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW] \t P = {3:0.0000} [MW]",
+            Console.WriteLine(String.Format("Electric-Sent: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW] \t P = {3:0.0000} [MW]",
                 gtime, step, ThermalPower, pval));
         }
 
-        public static void PublishGasThermalPower(double gtime, int step, double ThermalPower, SWIGTYPE_p_void GasPubPth)
+        public static void PublishGasThermalPower(double gtime, int step, double ThermalPower, SWIGTYPE_p_void GasPubPth, double GasMin, SWIGTYPE_p_void GasPubPthMax)
         {
             h.helicsPublicationPublishDouble(GasPubPth, ThermalPower);
 
             Console.WriteLine(String.Format("Gas-Sent: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]",
                 gtime, step, ThermalPower));
+
+            h.helicsPublicationPublishDouble(GasPubPthMax, GasMin);
+            Console.WriteLine(String.Format("Gas-Sent: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", gtime, step, GasMin));
         }
 
         public static bool SubscribeToGasThermalPower(double gtime, int step, double pval, SWIGTYPE_p_void SubToGas, List<double> ElecLastVal)
         {
             bool HasViolations = false;
 
-
-
             // subscribe to available thermal power from gas node
             double valPth = h.helicsInputGetDouble(SubToGas);
 
-            Console.WriteLine(String.Format("Electric-R: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime, step, valPth));
+            Console.WriteLine(String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime, step, valPth));
 
             //get currently required thermal power                 
             double HR = 5 + 0.5 * pval - 0.01 * pval * pval;
