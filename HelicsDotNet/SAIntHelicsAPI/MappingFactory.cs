@@ -42,7 +42,7 @@ namespace SAIntHelicsLib
             Console.WriteLine(String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime, step, valPth));
 
             //get currently required thermal power                 
-            double HR = 5 + 0.5 * pval - 0.01 * pval * pval;
+            double HR = 5 + 0.5 * pval - 0 * pval * pval;
             double ThermalPower = HR / 3.6 * pval; //Thermal power in [MW]; // eta_th=3.6/HR[MJ/kWh]
 
             ElecLastVal.Add(valPth);
