@@ -11,10 +11,7 @@ namespace HelicsDotNetSender
     {
         static void Main(string[] args)
         {
-            // Artificial delay
-            int delay = 0;
-            int AfterTimeStep = 0;
-
+           
             // Load Electric Model - DemoAlt_disruption - Compressor Outage
             string outputfolder = @"..\..\..\..\outputs\";
             Directory.CreateDirectory(outputfolder);
@@ -79,6 +76,10 @@ namespace HelicsDotNetSender
             //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
             var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
 
+            // Artificial delay
+            int delay = 10;
+            int AfterTimeStep = 0;
+
             // variables to control iterations
             short Iter = 0;
             List<TimeStepInfo> timestepinfo = new List<TimeStepInfo>();
@@ -121,8 +122,8 @@ namespace HelicsDotNetSender
                 // Initial publication of thermal power request equivalent to PGMAX for time = 0 and iter = 0;
                 if (TimeStep == 0)
                 {
-                    //granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
-                    MappingFactory.PublishElectricPower(granted_time - 1, Iter, P[TimeStep], ElectricPub);
+                   //granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
+                   MappingFactory.PublishElectricPower(granted_time - 1, Iter, P[TimeStep], ElectricPub);
                 }
 
                 // Set time step info
@@ -135,7 +136,11 @@ namespace HelicsDotNetSender
                     // Artificial delay
                     if (TimeStep > AfterTimeStep)
                     {
-                        Thread.Sleep(delay);
+                        //Thread.Sleep(delay);
+                        for (int i = 1; i< delay*1000; i++)
+                        {
+                            double JustForDelay = Math.Sqrt(i * i * Math.Exp(i));
+                        }
                     }
 
                     // stop iterating if max iterations have been reached                    
@@ -149,12 +154,6 @@ namespace HelicsDotNetSender
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
                     // get available thermal power at nodes, determine if there are violations
                     HasViolations = MappingFactory.SubscribeToGasThermalPower(granted_time - 1, Iter, P[TimeStep], SubToGas, ElecLastVal); 
-
-                    //get currently required thermal power                 
-                    //double HR = 5 + 0.5 * P[TimeStep] - 0 * P[TimeStep] * P[TimeStep];
-                    //double ThermalPower = HR / 3.6 * P[TimeStep]; //Thermal power in [MW]; // eta_th=3.6/HR[MJ/kWh]
-
-                    //ElecLastVal.Add(valPth);
 
                     if (HasViolations)
                     {

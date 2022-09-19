@@ -63,7 +63,9 @@ public enum HelicsFederateFlags {
   HELICS_FLAG_STRICT_CONFIG_CHECKING = 75,
   HELICS_FLAG_USE_JSON_SERIALIZATION = 79,
   HELICS_FLAG_EVENT_TRIGGERED = 81,
-  HELICS_FLAG_LOCAL_PROFILING_CAPTURE = 96
+  HELICS_FLAG_LOCAL_PROFILING_CAPTURE = 96,
+  HELICS_FLAG_CALLBACK_FEDERATE = 103,
+  HELICS_FLAG_AUTOMATED_TIMEREQUEST = 106
 }
 
 public enum HelicsCoreFlags {
@@ -127,6 +129,7 @@ public enum HelicsProperties {
   HELICS_PROPERTY_TIME_RT_TOLERANCE = 145,
   HELICS_PROPERTY_TIME_INPUT_DELAY = 148,
   HELICS_PROPERTY_TIME_OUTPUT_DELAY = 150,
+  HELICS_PROPERTY_TIME_MAXTIME = 152,
   HELICS_PROPERTY_TIME_GRANT_TIMEOUT = 161,
   HELICS_PROPERTY_INT_MAX_ITERATIONS = 259,
   HELICS_PROPERTY_INT_LOG_LEVEL = 271,
@@ -161,7 +164,8 @@ public enum HelicsHandleOptions {
   HELICS_HANDLE_OPTION_MULTI_INPUT_HANDLING_METHOD = 507,
   HELICS_HANDLE_OPTION_INPUT_PRIORITY_LOCATION = 510,
   HELICS_HANDLE_OPTION_CLEAR_PRIORITY_LIST = 512,
-  HELICS_HANDLE_OPTION_CONNECTIONS = 522
+  HELICS_HANDLE_OPTION_CONNECTIONS = 522,
+  HELICS_HANDLE_OPTION_TIME_RESTRICTED = 557
 }
 
 public enum HelicsFilterTypes {
@@ -189,7 +193,9 @@ public enum HelicsSequencingModes {
 public enum HelicsIterationRequest {
   HELICS_ITERATION_REQUEST_NO_ITERATION = 0,
   HELICS_ITERATION_REQUEST_FORCE_ITERATION = 1,
-  HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED = 2
+  HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED = 2,
+  HELICS_ITERATION_REQUEST_HALT_OPERATIONS = 5,
+  HELICS_ITERATION_REQUEST_ERROR = 7
 }
 
 public enum HelicsIterationResult {
@@ -764,6 +770,12 @@ class helicsPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCreateCombinationFederateFromConfig")]
   public static extern global::System.IntPtr helicsCreateCombinationFederateFromConfig(string jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCreateCallbackFederate")]
+  public static extern global::System.IntPtr helicsCreateCallbackFederate(string jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCreateCallbackFederateFromConfig")]
+  public static extern global::System.IntPtr helicsCreateCallbackFederateFromConfig(string jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateClone")]
   public static extern global::System.IntPtr helicsFederateClone(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -1700,6 +1712,27 @@ class helicsPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateSetTimeRequestReturnCallback")]
   public static extern void helicsFederateSetTimeRequestReturnCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateInitializingEntryCallback")]
+  public static extern void helicsFederateInitializingEntryCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateExecutingEntryCallback")]
+  public static extern void helicsFederateExecutingEntryCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateCosimulationTerminationCallback")]
+  public static extern void helicsFederateCosimulationTerminationCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateErrorHandlerCallback")]
+  public static extern void helicsFederateErrorHandlerCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCallbackFederateNextTimeCallback")]
+  public static extern void helicsCallbackFederateNextTimeCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCallbackFederateNextTimeIterativeCallback")]
+  public static extern void helicsCallbackFederateNextTimeIterativeCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCallbackFederateInitializeCallback")]
+  public static extern void helicsCallbackFederateInitializeCallback(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 }
 
 public class helics {
@@ -2215,6 +2248,20 @@ public class helics {
 
   public static SWIGTYPE_p_void helicsCreateCombinationFederateFromConfig(string configFile) {
     global::System.IntPtr cPtr = helicsPINVOKE.helicsCreateCombinationFederateFromConfig(configFile);
+    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static SWIGTYPE_p_void helicsCreateCallbackFederate(string fedName, SWIGTYPE_p_void fi) {
+    global::System.IntPtr cPtr = helicsPINVOKE.helicsCreateCallbackFederate(fedName, SWIGTYPE_p_void.getCPtr(fi));
+    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static SWIGTYPE_p_void helicsCreateCallbackFederateFromConfig(string configFile) {
+    global::System.IntPtr cPtr = helicsPINVOKE.helicsCreateCallbackFederateFromConfig(configFile);
     SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
     return ret;
@@ -3880,69 +3927,72 @@ public class helics {
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public static void helicsFederateInitializingEntryCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_int_p_void__void initializingEntry, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsFederateInitializingEntryCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_int_p_void__void.getCPtr(initializingEntry), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateExecutingEntryCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_p_void__void executingEntry, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsFederateExecutingEntryCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_p_void__void.getCPtr(executingEntry), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateCosimulationTerminationCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_p_void__void cosimTermination, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsFederateCosimulationTerminationCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_p_void__void.getCPtr(cosimTermination), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateErrorHandlerCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_int_p_q_const__char_p_void__void errorHandler, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsFederateErrorHandlerCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_int_p_q_const__char_p_void__void.getCPtr(errorHandler), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsCallbackFederateNextTimeCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_double_p_void__double timeUpdate, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsCallbackFederateNextTimeCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_double_p_void__double.getCPtr(timeUpdate), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsCallbackFederateNextTimeIterativeCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double timeUpdate, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsCallbackFederateNextTimeIterativeCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double.getCPtr(timeUpdate), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsCallbackFederateInitializeCallback(SWIGTYPE_p_void fed, SWIGTYPE_p_f_p_void__HelicsIterationRequest initialize, SWIGTYPE_p_void userdata) {
+    helicsPINVOKE.helicsCallbackFederateInitializeCallback(SWIGTYPE_p_void.getCPtr(fed), SWIGTYPE_p_f_p_void__HelicsIterationRequest.getCPtr(initialize), SWIGTYPE_p_void.getCPtr(userdata));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public static readonly double HELICS_BIG_NUMBER = helicsPINVOKE.HELICS_BIG_NUMBER_get();
 }
 
-public class SWIGTYPE_p_f_double_double_int_p_void__void {
+public class SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-  internal SWIGTYPE_p_f_double_double_int_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+  internal SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double(global::System.IntPtr cPtr, bool futureUse) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  protected SWIGTYPE_p_f_double_double_int_p_void__void() {
+  protected SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double() {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_double_int_p_void__void obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_enum_HelicsIterationResult_p_enum_HelicsIterationRequest_p_void__double obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }
 
-public class SWIGTYPE_p_f_double_int_p_void__void {
+public class SWIGTYPE_p_f_double_p_void__double {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-  internal SWIGTYPE_p_f_double_int_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+  internal SWIGTYPE_p_f_double_p_void__double(global::System.IntPtr cPtr, bool futureUse) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  protected SWIGTYPE_p_f_double_int_p_void__void() {
+  protected SWIGTYPE_p_f_double_p_void__double() {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_int_p_void__void obj) {
-    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-  }
-}
-
-public class SWIGTYPE_p_f_int__int {
-  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-
-  internal SWIGTYPE_p_f_int__int(global::System.IntPtr cPtr, bool futureUse) {
-    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-  }
-
-  protected SWIGTYPE_p_f_int__int() {
-    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-  }
-
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_int__int obj) {
-    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-  }
-}
-
-public class SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void {
-  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-
-  internal SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
-    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-  }
-
-  protected SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void() {
-    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-  }
-
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_p_void__double obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }
@@ -3963,18 +4013,98 @@ public class SWIGTYPE_p_double {
   }
 }
 
-public class SWIGTYPE_p_p_char {
+public class SWIGTYPE_p_f_int_p_q_const__char_p_void__void {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-  internal SWIGTYPE_p_p_char(global::System.IntPtr cPtr, bool futureUse) {
+  internal SWIGTYPE_p_f_int_p_q_const__char_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  protected SWIGTYPE_p_p_char() {
+  protected SWIGTYPE_p_f_int_p_q_const__char_p_void__void() {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_p_char obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_int_p_q_const__char_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_p_void__void {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_p_void__void() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_int_p_void__void {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_int_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_int_p_void__void() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_int_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_double_int_p_void__void {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_double_int_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_double_int_p_void__void() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_int_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_double_double_int_p_void__void {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_double_double_int_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_double_double_int_p_void__void() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_double_double_int_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_int32_t {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_int32_t(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_int32_t() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_int32_t obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }
@@ -3995,18 +4125,66 @@ public class SWIGTYPE_p_void {
   }
 }
 
-public class SWIGTYPE_p_int32_t {
+public class SWIGTYPE_p_f_int__int {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-  internal SWIGTYPE_p_int32_t(global::System.IntPtr cPtr, bool futureUse) {
+  internal SWIGTYPE_p_f_int__int(global::System.IntPtr cPtr, bool futureUse) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  protected SWIGTYPE_p_int32_t() {
+  protected SWIGTYPE_p_f_int__int() {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_int32_t obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_int__int obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_p_char {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_p_char(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_p_char() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_p_char obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_enum_HelicsFederateState_enum_HelicsFederateState_p_void__void obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+public class SWIGTYPE_p_f_p_void__HelicsIterationRequest {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_f_p_void__HelicsIterationRequest(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_f_p_void__HelicsIterationRequest() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_f_p_void__HelicsIterationRequest obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }
