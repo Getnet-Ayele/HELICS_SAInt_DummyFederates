@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>GasElectricBroker</RootNamespace>
     <AssemblyName>GasElectricBroker</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -16,6 +16,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,6 +82,10 @@
     <ProjectReference Include="..\HelicsDotNetAPI\HelicsDotNetAPI.csproj">
       <Project>{0828af05-b251-4063-ae2b-319b634d15ab}</Project>
       <Name>HelicsDotNetAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAIntHelicsAPI\SAIntHelicsLib.csproj">
+      <Project>{2e6947e8-3f38-4263-9a7d-22cab425c4d9}</Project>
+      <Name>SAIntHelicsLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
