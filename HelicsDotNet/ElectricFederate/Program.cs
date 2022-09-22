@@ -84,8 +84,8 @@ namespace HelicsDotNetSender
 
             double granted_time = 0;
             double requested_time;
-            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
-            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
+            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
+            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
             Logger.WriteLog($"Electric: iteration flag: {iter_flag}", true);
 
             // Artificial delay

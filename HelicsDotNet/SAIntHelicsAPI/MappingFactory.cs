@@ -60,7 +60,7 @@ namespace SAIntHelicsLib
             }
             else
             {
-                if (ElecLastVal.Count > 1)
+                if (ElecLastVal.Count > 2)
                 {
                     if (Math.Abs(ElecLastVal[ElecLastVal.Count - 1] - ElecLastVal[ElecLastVal.Count - 2]) > 0.001)
                     {

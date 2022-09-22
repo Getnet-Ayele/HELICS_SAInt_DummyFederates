@@ -77,8 +77,8 @@ namespace HelicsDotNetReceiver
 
             double granted_time = 0;
             double requested_time;
-            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
-            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
+            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
+            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
             Logger.WriteLog($"Gas: iteration flag: {iter_flag}", true);
 
             short Iter = 0;
@@ -176,7 +176,7 @@ namespace HelicsDotNetReceiver
                     }
                     else
                     {
-                        if (GasLastVal.Count > 1)
+                        if (GasLastVal.Count > 2)
                         {
                             if (Math.Abs(GasLastVal[GasLastVal.Count - 2] - GasLastVal[GasLastVal.Count - 1]) > 0.001)
                             {
