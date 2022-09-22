@@ -18,24 +18,24 @@ namespace GasElectricBroker
             Console.WriteLine("Creating Broker");
             // Creating the log file and writting to it for the first time
            
-            Logger.WriteLog("Creating Broker", false);
+            Logger.WriteLogBroker("Creating Broker", false);
             var broker = h.helicsCreateBroker("tcp", "", initBrokerString);
-            Console.WriteLine("Broker Created"); Logger.WriteLog("Broker Created", true);
-            Console.WriteLine("Checking if Broker is connected"); Logger.WriteLog("Checking if Broker is connected", true);
+            Console.WriteLine("Broker Created"); Logger.WriteLogBroker("Broker Created", true);
+            Console.WriteLine("Checking if Broker is connected"); Logger.WriteLogBroker("Checking if Broker is connected", true);
             
             int isconnected = h.helicsBrokerIsConnected(broker);
-            Console.WriteLine("Checked if Broker is connected"); Logger.WriteLog("Checked if Broker is connected", true);
+            Console.WriteLine("Checked if Broker is connected"); Logger.WriteLogBroker("Checked if Broker is connected", true);
 
             if (isconnected == 1)
             {
                 Console.WriteLine("Broker created and connected");
-                Logger.WriteLog("Broker created and connected", true);
+                Logger.WriteLogBroker("Broker created and connected", true);
             }
 
 
             while (h.helicsBrokerIsConnected(broker) > 0) Thread.Sleep(1);            
             Console.WriteLine("GasElectric: Broker disconnected");
-            Logger.WriteLog("GasElectric: Broker disconnected", true);
+            Logger.WriteLogBroker("GasElectric: Broker disconnected", true);
             _ = Console.ReadKey();
         }
     }

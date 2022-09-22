@@ -17,26 +17,26 @@ namespace HelicsDotNetReceiver
 
             // Get HELICS version
             Console.WriteLine($"Gas: HELICS version ={h.helicsGetVersion()}");
-            Logger.WriteLog($"Gas: HELICS version ={h.helicsGetVersion()}", true);
+            Logger.WriteLogGas($"Gas: HELICS version ={h.helicsGetVersion()}", true);
 
             // Create Federate Info object that describes the federate properties
-            Console.WriteLine("Gas: Creating Federate Info"); Logger.WriteLog("Gas: Creating Federate Info", true);
+            Console.WriteLine("Gas: Creating Federate Info"); Logger.WriteLogGas("Gas: Creating Federate Info", true);
             var fedinfo = h.helicsCreateFederateInfo();
 
             // Set core type from string
-            Console.WriteLine("Gas: Setting Federate Core Type"); Logger.WriteLog("Gas: Setting Federate Core Type", true);
+            Console.WriteLine("Gas: Setting Federate Core Type"); Logger.WriteLogGas("Gas: Setting Federate Core Type", true);
             h.helicsFederateInfoSetCoreName(fedinfo, "Gas Federate Core");
             h.helicsFederateInfoSetCoreTypeFromString(fedinfo, "tcp");
 
             // Federate init string
-            Console.WriteLine("Gas: Setting Federate Info Init String"); Logger.WriteLog("Gas: Setting Federate Info Init String", true);
+            Console.WriteLine("Gas: Setting Federate Info Init String"); Logger.WriteLogGas("Gas: Setting Federate Info Init String", true);
             string fedinitstring = "--federates=1";
             h.helicsFederateInfoSetCoreInitString(fedinfo, fedinitstring);
 
             // Create value federate
-            Console.WriteLine("Gas: Creating Value Federate"); Logger.WriteLog("Gas: Creating Value Federate", true);
+            Console.WriteLine("Gas: Creating Value Federate"); Logger.WriteLogGas("Gas: Creating Value Federate", true);
             var vfed = h.helicsCreateValueFederate("Gas Federate", fedinfo);
-            Console.WriteLine("Gas: Value federate created"); Logger.WriteLog("Gas: Value federate created", true);
+            Console.WriteLine("Gas: Value federate created"); Logger.WriteLogGas("Gas: Value federate created", true);
 
             // Register Publication and Subscription for coupling points
             SWIGTYPE_p_void GasPubPth = h.helicsFederateRegisterGlobalTypePublication(vfed, "GasThermalPower", "double", "");
@@ -45,21 +45,21 @@ namespace HelicsDotNetReceiver
 
             // Set one second message interval
             double period = 1;
-            Console.WriteLine("Electric: Setting Federate Timing"); Logger.WriteLog("Electric: Setting Federate Timing", true);
+            Console.WriteLine("Electric: Setting Federate Timing"); Logger.WriteLogGas("Electric: Setting Federate Timing", true);
             h.helicsFederateSetTimeProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_TIME_PERIOD, period);
 
             // check to make sure setting the time property worked
             double period_set = h.helicsFederateGetTimeProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_TIME_PERIOD);
-            Console.WriteLine($"Time period: {period_set}"); Logger.WriteLog($"Time period: {period_set}", true);
+            Console.WriteLine($"Time period: {period_set}"); Logger.WriteLogGas($"Time period: {period_set}", true);
 
             // set max iteration at 20
             h.helicsFederateSetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS, 20);
             int iter_max = h.helicsFederateGetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS);
-            Console.WriteLine($"Max iterations: {iter_max}"); Logger.WriteLog($"Max iterations: {iter_max}", true);
+            Console.WriteLine($"Max iterations: {iter_max}"); Logger.WriteLogGas($"Max iterations: {iter_max}", true);
 
             // enter execution mode
             h.helicsFederateEnterExecutingMode(vfed);
-            Console.WriteLine("Gas: Entering execution mode"); Logger.WriteLog("Gas: Entering execution mode", true);
+            Console.WriteLine("Gas: Entering execution mode"); Logger.WriteLogGas("Gas: Entering execution mode", true);
 
             // Synthetic data
             double[] Pthermal = { 200, 200, 200, 200, 30, 200, 200, 200, 200, 200, 200, 200 };
@@ -73,7 +73,7 @@ namespace HelicsDotNetReceiver
             // set number of HELICS time steps based on scenario
             double total_time = Pthermal.Length;
             Console.WriteLine($"Number of time steps in scenario: {total_time}"); 
-            Logger.WriteLog($"Number of time steps in scenario: {total_time}", true);
+            Logger.WriteLogGas($"Number of time steps in scenario: {total_time}", true);
 
             double granted_time = 0;
             double requested_time;
@@ -107,14 +107,14 @@ namespace HelicsDotNetReceiver
             for (TimeStep = 0; TimeStep < total_time; TimeStep++)
             {
                 // non-iterative time request here to block until both federates are done iterating
-                Console.WriteLine($"Requested time {TimeStep}"); Logger.WriteLog($"Requested time {TimeStep}", true);
+                Console.WriteLine($"Requested time {TimeStep}"); Logger.WriteLogGas($"Requested time {TimeStep}", true);
                 //Console.WriteLine($"Requested time {e.TimeStep}");
 
                 Iter = 0; // Iteration number
 
                 // HELICS time granted 
                 granted_time = h.helicsFederateRequestTime(vfed, TimeStep);
-                Console.WriteLine($"Granted time: {granted_time}"); Logger.WriteLog($"Granted time: {granted_time}", true);
+                Console.WriteLine($"Granted time: {granted_time}"); Logger.WriteLogGas($"Granted time: {granted_time}", true);
 
                 IsRepeating = true;
                 HasViolations = true;
@@ -138,7 +138,7 @@ namespace HelicsDotNetReceiver
 
                     // iterative HELICS time request                        
                     Console.WriteLine($"Requested time: {TimeStep}, iteration: {Iter}");
-                    Logger.WriteLog($"Requested time: {TimeStep}, iteration: {Iter}", true);
+                    Logger.WriteLogGas($"Requested time: {TimeStep}, iteration: {Iter}", true);
 
                     // get requested thermal power from connected gas plants, determine if there are violations                        
                     HasViolations = false;
@@ -148,7 +148,7 @@ namespace HelicsDotNetReceiver
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status); 
                     double val = h.helicsInputGetDouble(SubToElectric);
                     Console.WriteLine(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val));
-                    Logger.WriteLog(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val), true);
+                    Logger.WriteLogGas(String.Format("Gas-Received: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, val), true);
 
                     GasLastVal.Add(val);
 
@@ -171,7 +171,7 @@ namespace HelicsDotNetReceiver
                         }
 
                         Console.WriteLine(String.Format("Gas-Event: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, Pthermal[TimeStep]));
-                        Logger.WriteLog(String.Format("Gas-Event: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, Pthermal[TimeStep]), true);
+                        Logger.WriteLogGas(String.Format("Gas-Event: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW]", TimeStep, Iter, Pthermal[TimeStep]), true);
                     }
                     else
                     {
@@ -193,7 +193,7 @@ namespace HelicsDotNetReceiver
                     // HELICS time granted 
                     granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
                     Console.WriteLine($"Granted time: {granted_time - 1}, iteration status: {helics_iter_status}");
-                    Logger.WriteLog($"Granted time: {granted_time - 1}, iteration status: {helics_iter_status}", true);
+                    Logger.WriteLogGas($"Granted time: {granted_time - 1}, iteration status: {helics_iter_status}", true);
                     // using an offset of 1 on the granted_time here because HELICS starts at t=1 and SAInt starts at t=0 
                     MappingFactory.PublishGasThermalPower(granted_time - 1, Iter, Pthermal[TimeStep], GasPubPth, (PthermalMax - val), GasPubPthMax);
 
@@ -214,7 +214,7 @@ namespace HelicsDotNetReceiver
             requested_time = total_time;
             //Console.WriteLine($"Requested time: {requested_time}");
 
-            Console.WriteLine($"Requested time step: {requested_time}"); Logger.WriteLog($"Requested time step: {requested_time}", true);
+            Console.WriteLine($"Requested time step: {requested_time}"); Logger.WriteLogGas($"Requested time step: {requested_time}", true);
             h.helicsFederateRequestTime(vfed, requested_time);
 
 #if !DEBUG
@@ -226,7 +226,7 @@ namespace HelicsDotNetReceiver
 
             // finalize federate
             h.helicsFederateFinalize(vfed);
-            Console.WriteLine("Gas: Federate finalized"); Logger.WriteLog($"Gas: Federate finalized", true);
+            Console.WriteLine("Gas: Federate finalized"); Logger.WriteLogGas($"Gas: Federate finalized", true);
             h.helicsFederateFree(vfed);
             // If all federates are disconnected from the broker, then close libraries
             h.helicsCloseLibrary();
@@ -271,19 +271,19 @@ namespace HelicsDotNetReceiver
             if (notconverged.Count == 0)
             {
                 Console.WriteLine("\n Gas: There is no diverging time step.");
-                Logger.WriteLog($"Gas: There is no diverging time step.", true);
+                Logger.WriteLogGas($"Gas: There is no diverging time step.", true);
             }
             else
             {
                 Console.WriteLine("Gas: the solution diverged at the following time steps:");
-                Logger.WriteLog($"Gas: the solution diverged at the following time steps:", true);
+                Logger.WriteLogGas($"Gas: the solution diverged at the following time steps:", true);
                 foreach (TimeStepInfo x in notconverged)
                 {
                     Console.WriteLine($"Time-step {x.timestep}");
-                    Logger.WriteLog($"Time-step {x.timestep}", true);
+                    Logger.WriteLogGas($"Time-step {x.timestep}", true);
                 }
                 Console.WriteLine($"\n Gas: The total number of diverging time steps = { notconverged.Count }");
-                Logger.WriteLog($"\n Gas: The total number of diverging time steps = { notconverged.Count }", true);
+                Logger.WriteLogGas($"\n Gas: The total number of diverging time steps = { notconverged.Count }", true);
             }
 
             var k = Console.ReadKey();
