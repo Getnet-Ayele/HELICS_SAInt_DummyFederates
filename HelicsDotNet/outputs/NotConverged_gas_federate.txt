@@ -1,3 +1,2 @@
 TimeStep 	 IterStep
-3	20
-6	20
+2	20

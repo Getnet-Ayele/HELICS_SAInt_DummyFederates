@@ -1,6 +1,0 @@
-9/22/2022 4:12:20 AM : Creating Broker
-9/22/2022 4:12:20 AM : Broker Created
-9/22/2022 4:12:20 AM : Checking if Broker is connected
-9/22/2022 4:12:20 AM : Checked if Broker is connected
-9/22/2022 4:12:20 AM : Broker created and connected
-9/22/2022 4:12:35 AM : GasElectric: Broker disconnected

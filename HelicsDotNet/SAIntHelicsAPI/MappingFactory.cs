@@ -19,7 +19,7 @@ namespace SAIntHelicsLib
             string message = String.Format("Electric-Sent: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW] \t P = {3:0.0000} [MW]",
                 gtime, step, ThermalPower, pval);
             Console.WriteLine(message);
-            Logger.WriteLogElec(message, true);
+            Logger.WriteLog(message, true);
         }
 
         public static void PublishGasThermalPower(double gtime, int step, double ThermalPower, SWIGTYPE_p_void GasPubPth, double GasMin, SWIGTYPE_p_void GasPubPthMax)
@@ -28,12 +28,12 @@ namespace SAIntHelicsLib
             string message = String.Format("Gas-Sent: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]",
                 gtime, step, ThermalPower);
             Console.WriteLine(message);
-            Logger.WriteLogGas(message, true);
+            Logger.WriteLog(message, true);
 
             h.helicsPublicationPublishDouble(GasPubPthMax, GasMin);
             string message2 = String.Format("Gas-Sent: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", gtime, step, GasMin);
             Console.WriteLine(message2);
-            Logger.WriteLogGas(message2, true);
+            Logger.WriteLog(message2, true);
         }
 
         public static bool SubscribeToGasThermalPower(double gtime, int step, double pval, SWIGTYPE_p_void SubToGas, List<double> ElecLastVal)
@@ -45,7 +45,7 @@ namespace SAIntHelicsLib
 
             string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime, step, valPth);
             Console.WriteLine(message);
-            Logger.WriteLogElec(message, true);
+            Logger.WriteLog(message, true);
 
             //get currently required thermal power                 
             double HR = 5 + 0.5 * pval - 0 * pval * pval;
