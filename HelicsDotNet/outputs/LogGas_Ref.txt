@@ -1,0 +1,372 @@
+9/22/2022 3:50:26 AM : Gas: HELICS version =3.3.0 (2022-09-15)
+9/22/2022 3:50:26 AM : Gas: Creating Federate Info
+9/22/2022 3:50:26 AM : Gas: Setting Federate Core Type
+9/22/2022 3:50:26 AM : Gas: Setting Federate Info Init String
+9/22/2022 3:50:26 AM : Gas: Creating Value Federate
+9/22/2022 3:50:26 AM : Gas: Value federate created
+9/22/2022 3:50:26 AM : Electric: Setting Federate Timing
+9/22/2022 3:50:26 AM : Time period: 1
+9/22/2022 3:50:26 AM : Max iterations: 20
+9/22/2022 3:50:26 AM : Gas: Entering execution mode
+9/22/2022 3:50:26 AM : Number of time steps in scenario: 12
+9/22/2022 3:50:26 AM : Requested time 0
+9/22/2022 3:50:26 AM : Granted time: 1
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 0 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 0 	 PthgMargin = 1.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 1
+9/22/2022 3:50:26 AM : Gas-Received: Time 0 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 0 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Granted time: 0, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 1 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 1 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 2
+9/22/2022 3:50:26 AM : Gas-Received: Time 0 	 iter 2 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Granted time: 0, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 2 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 0 	 iter 2 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Requested time 1
+9/22/2022 3:50:26 AM : Granted time: 2
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 1
+9/22/2022 3:50:26 AM : Gas-Received: Time 1 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 1 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Granted time: 1, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 1 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 1 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 2
+9/22/2022 3:50:26 AM : Gas-Received: Time 1 	 iter 2 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 1 	 iter 2 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Granted time: 1, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 2 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 2 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 3
+9/22/2022 3:50:26 AM : Gas-Received: Time 1 	 iter 3 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Granted time: 1, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 3 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 1 	 iter 3 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Requested time 2
+9/22/2022 3:50:26 AM : Granted time: 3
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 1
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 1 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 1 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 1 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 1 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 2
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 2 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 2 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 2 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 2 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 3
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 3 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 3 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 3 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 3 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 4
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 4 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 4 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 4 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 5
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 5 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 5 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 5 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 5 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 6
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 6 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 6 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 6 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 7
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 7 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 7 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 7 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 7 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 8
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 8 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 8 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 8 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Gas-Sent: Time 2 	 iter 8 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 9
+9/22/2022 3:50:26 AM : Gas-Received: Time 2 	 iter 9 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:26 AM : Gas-Event: Time 2 	 iter 9 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 9 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 9 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 10
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 10 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 10 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 10 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 10 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 11
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 11 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 11 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 11 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 11 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 12
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 12 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 12 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 12 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 12 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 13
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 13 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 13 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 13 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 13 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 14
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 14 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 14 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 14 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 15
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 15 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 15 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 15 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 15 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 16
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 16 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 16 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 16 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 16 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 17
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 17 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 17 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 17 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 17 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 18
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 18 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 18 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 18 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 18 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 19
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 19 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 19 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 19 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 19 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 2, iteration: 20
+9/22/2022 3:50:27 AM : Gas-Received: Time 2 	 iter 20 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 2 	 iter 20 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 2, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 20 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 2 	 iter 20 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time 3
+9/22/2022 3:50:27 AM : Granted time: 4
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 3 	 iter 1 	 Pthe = 83.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 3 	 iter 1 	 Pthe = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 3, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 1 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 1 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 3 	 iter 2 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 3 	 iter 2 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 3, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 2 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 3 	 iter 3 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 3, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 3 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 3 	 iter 3 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 4
+9/22/2022 3:50:27 AM : Granted time: 5
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 4 	 iter 1 	 Pthe = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 4 	 iter 1 	 Pthe = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Granted time: 4, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 4 	 iter 1 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 4 	 iter 1 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 4 	 iter 2 	 Pthe = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Granted time: 4, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 4 	 iter 2 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 4 	 iter 2 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time 5
+9/22/2022 3:50:27 AM : Granted time: 6
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 1 	 Pthe = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 1 	 Pthe = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 1 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 1 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 2 	 Pthe = 1527.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 2 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 2 	 PthgMargin = -527.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 3 	 Pthe = 1527.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 3 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 3 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 3 	 PthgMargin = -527.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 4
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 4 	 Pthe = 1385.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 4 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 4 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 4 	 PthgMargin = -385.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 5
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 5 	 Pthe = 1385.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 5 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 5 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 5 	 PthgMargin = -385.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 6
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 6 	 Pthe = 1121.5278 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 5 	 iter 6 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 6 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 6 	 PthgMargin = -121.5278 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 7
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 7 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 7 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 7 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 8
+9/22/2022 3:50:27 AM : Gas-Received: Time 5 	 iter 8 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 5, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 8 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 5 	 iter 8 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 6
+9/22/2022 3:50:27 AM : Granted time: 7
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 1 	 Pthe = 1250.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 6 	 iter 1 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 1 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 1 	 PthgMargin = -250.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 2 	 Pthe = 1250.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 6 	 iter 2 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 2 	 PthgMargin = -250.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 3 	 Pthe = 1121.5278 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 6 	 iter 3 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 3 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 3 	 PthgMargin = -121.5278 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 4
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 4 	 Pthe = 1121.5278 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 6 	 iter 4 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 4 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 4 	 PthgMargin = -121.5278 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 5
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 5 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 5 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 5 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 6
+9/22/2022 3:50:27 AM : Gas-Received: Time 6 	 iter 6 	 Pthe = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Granted time: 6, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 6 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 6 	 iter 6 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 7
+9/22/2022 3:50:27 AM : Granted time: 8
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 7 	 iter 1 	 Pthe = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 7 	 iter 1 	 Pthe = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Granted time: 7, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 7 	 iter 1 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 7 	 iter 1 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 7 	 iter 2 	 Pthe = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Granted time: 7, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 7 	 iter 2 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 7 	 iter 2 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Requested time 8
+9/22/2022 3:50:27 AM : Granted time: 9
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 8 	 iter 1 	 Pthe = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 8 	 iter 1 	 Pthe = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Granted time: 8, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 8 	 iter 1 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 8 	 iter 1 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 8 	 iter 2 	 Pthe = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Granted time: 8, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 8 	 iter 2 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 8 	 iter 2 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Requested time 9
+9/22/2022 3:50:27 AM : Granted time: 10
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 9 	 iter 1 	 Pthe = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 9 	 iter 1 	 Pthe = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Granted time: 9, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 1 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 1 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 9 	 iter 2 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 9 	 iter 2 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Granted time: 9, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 2 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 2 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 9 	 iter 3 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Granted time: 9, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 3 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 9 	 iter 3 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Requested time 10
+9/22/2022 3:50:27 AM : Granted time: 11
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 10 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 10 	 iter 1 	 Pthe = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Granted time: 10, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 1 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 1 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 10 	 iter 2 	 Pthe = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 10 	 iter 2 	 Pthe = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Granted time: 10, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 2 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 2 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 10 	 iter 3 	 Pthe = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Granted time: 10, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 3 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 10 	 iter 3 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time 11
+9/22/2022 3:50:27 AM : Granted time: 12
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 1
+9/22/2022 3:50:27 AM : Gas-Received: Time 11 	 iter 1 	 Pthe = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 11 	 iter 1 	 Pthe = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Granted time: 11, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 1 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 1 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 2
+9/22/2022 3:50:27 AM : Gas-Received: Time 11 	 iter 2 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Event: Time 11 	 iter 2 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Granted time: 11, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 2 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 2 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 3
+9/22/2022 3:50:27 AM : Gas-Received: Time 11 	 iter 3 	 Pthe = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Granted time: 11, iteration status: 3
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 3 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Gas-Sent: Time 11 	 iter 3 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time step: 12
+9/22/2022 3:50:27 AM : Gas: Federate finalized
+9/22/2022 3:50:28 AM : Gas: the solution diverged at the following time steps:
+9/22/2022 3:50:28 AM : Time-step 2
+9/22/2022 3:50:28 AM : 
+ Gas: The total number of diverging time steps = 1

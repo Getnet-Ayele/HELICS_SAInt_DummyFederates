@@ -88,7 +88,7 @@ namespace HelicsDotNetSender
             var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
 
             // Artificial delay
-            int delay = 0;
+            int delay = 1000;
             int AfterTimeStep = 0;
 
             // variables to control iterations

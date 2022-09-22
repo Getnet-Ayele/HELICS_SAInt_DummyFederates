@@ -1,0 +1,441 @@
+9/22/2022 3:50:26 AM : Electric: HELICS version =3.3.0 (2022-09-15)
+9/22/2022 3:50:26 AM : Electric: Creating Federate Info
+9/22/2022 3:50:26 AM : Electric: Setting Federate Core Type
+9/22/2022 3:50:26 AM : Electric: Setting Federate Info Init String
+9/22/2022 3:50:26 AM : Electric: Creating Value Federate
+9/22/2022 3:50:26 AM : Electric: Value federate created
+9/22/2022 3:50:26 AM : Electric: Setting Federate Timing
+9/22/2022 3:50:26 AM : Time period: 1
+9/22/2022 3:50:26 AM : Max iterations: 20
+9/22/2022 3:50:26 AM : Electric: Entering execution mode
+9/22/2022 3:50:26 AM : Number of time steps in scenario: 12
+9/22/2022 3:50:26 AM : Requested time 0
+9/22/2022 3:50:26 AM : Granted time: 0
+9/22/2022 3:50:26 AM : Electric-Sent: Time 0 	 iter 0 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 0 	 iter 1 	 PthgMargin = 1.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 0 	 iter 1 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 1
+9/22/2022 3:50:26 AM : Granted time: 0,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 0 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 0 	 iter 2 	 PthgMargin = 1.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 0 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 2
+9/22/2022 3:50:26 AM : Granted time: 0,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 0 	 iter 2 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 0 	 iter 3 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 0 	 iter 3 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 3
+9/22/2022 3:50:26 AM : Granted time: 0,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 0 	 iter 3 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 0 	 iter 4 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 0 	 iter 4 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Requested time: 0, iteration: 4
+9/22/2022 3:50:26 AM : Granted time: 0,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 0 	 iter 4 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time 1
+9/22/2022 3:50:26 AM : Granted time: 1
+9/22/2022 3:50:26 AM : Electric-Received: Time 1 	 iter 1 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 1 	 iter 1 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 1
+9/22/2022 3:50:26 AM : Granted time: 1,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 1 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 1 	 iter 2 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 1 	 iter 2 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 2
+9/22/2022 3:50:26 AM : Granted time: 1,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 1 	 iter 2 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 1 	 iter 3 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 1 	 iter 3 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 3
+9/22/2022 3:50:26 AM : Granted time: 1,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 1 	 iter 3 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 1 	 iter 4 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 1 	 iter 4 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 4
+9/22/2022 3:50:26 AM : Granted time: 1,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 1 	 iter 4 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 1 	 iter 5 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 1 	 iter 5 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 1, iteration: 5
+9/22/2022 3:50:26 AM : Granted time: 1,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 1 	 iter 5 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time 2
+9/22/2022 3:50:26 AM : Granted time: 2
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 1 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 1 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 1
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 1 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 2 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 2 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 2
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 2 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 3 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 3 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 3
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 3 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 4 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 4
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 4 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 5 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 5 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 5
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 5 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 6 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 6
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 6 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 7 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 7 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 7
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 7 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 8 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 8 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 8
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 8 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 9 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 9 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 9
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 9 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 10 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 10 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 10
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 10 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 11 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 11 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 11
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 11 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 12 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 12 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 12
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 12 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 13 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 13 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 13
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 13 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 14 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 14
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 14 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 15 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 15 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 15
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 15 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 16 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 16 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 16
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 16 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 17 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 17 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 17
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 17 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 18 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 18 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 18
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 18 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 19 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 19 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 19
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 19 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Electric-Received: Time 2 	 iter 20 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:26 AM : Electric-Recieved: Time 2 	 iter 20 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time: 2, iteration: 20
+9/22/2022 3:50:26 AM : Granted time: 2,  Iteration status: 3
+9/22/2022 3:50:26 AM : Electric-Sent: Time 2 	 iter 20 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+9/22/2022 3:50:26 AM : Requested time 3
+9/22/2022 3:50:27 AM : Granted time: 3
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 1 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 1 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 1 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 2 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 2 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 2 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 3 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 3 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 3 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 4 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 4 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 4 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 5 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 5 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 5
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 5 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 6 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 6 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 6
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 6 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 7 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 7 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 7
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 7 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 8 	 PthgMargin = 916.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 8 	 Pthg = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 8
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 8 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 9 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 9 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 9
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 9 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 3 	 iter 10 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 3 	 iter 10 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 3, iteration: 10
+9/22/2022 3:50:27 AM : Granted time: 3,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 3 	 iter 10 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 4
+9/22/2022 3:50:27 AM : Granted time: 4
+9/22/2022 3:50:27 AM : Electric-Received: Time 4 	 iter 1 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 4 	 iter 1 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 4,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 4 	 iter 1 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 4 	 iter 2 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 4 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 4,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 4 	 iter 2 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 4 	 iter 3 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 4 	 iter 3 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 4,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 4 	 iter 3 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 4 	 iter 4 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 4 	 iter 4 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 4, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 4,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 4 	 iter 4 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 5
+9/22/2022 3:50:27 AM : Granted time: 5
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 1 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 1 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 1 	 Pthe = 1527.7778 [MW] 	 P = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 2 	 PthgMargin = 833.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 2 	 Pthg = 166.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 2 	 Pthe = 1527.7778 [MW] 	 P = 100.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 3 	 PthgMargin = -527.7778 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 3 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 3 	 Pthe = 1385.4167 [MW] 	 P = 95.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 4 	 PthgMargin = -527.7778 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 4 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 4 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 5 	 PthgMargin = -385.4167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 5 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 5
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 5 	 Pthe = 1121.5278 [MW] 	 P = 85.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 6 	 PthgMargin = -385.4167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 6 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 6
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 6 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 5 	 iter 7 	 PthgMargin = -121.5278 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 5 	 iter 7 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 5, iteration: 7
+9/22/2022 3:50:27 AM : Granted time: 5,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 5 	 iter 7 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 6
+9/22/2022 3:50:27 AM : Granted time: 6
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 1 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 1 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 1 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 2 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 2 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 3 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 3 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 3 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 4 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 4 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 4 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 5 	 PthgMargin = -250.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 5 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 5
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 5 	 Pthe = 1121.5278 [MW] 	 P = 85.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 6 	 PthgMargin = -250.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 6 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 6
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 6 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 6 	 iter 7 	 PthgMargin = -121.5278 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 6 	 iter 7 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 6, iteration: 7
+9/22/2022 3:50:27 AM : Granted time: 6,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 6 	 iter 7 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 7
+9/22/2022 3:50:27 AM : Granted time: 7
+9/22/2022 3:50:27 AM : Electric-Received: Time 7 	 iter 1 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 7 	 iter 1 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 7,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 7 	 iter 1 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 7 	 iter 2 	 PthgMargin = 0.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 7 	 iter 2 	 Pthg = 1000.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 7,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 7 	 iter 2 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 7 	 iter 3 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 7 	 iter 3 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 7,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 7 	 iter 3 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 7 	 iter 4 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 7 	 iter 4 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 7, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 7,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 7 	 iter 4 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 8
+9/22/2022 3:50:27 AM : Granted time: 8
+9/22/2022 3:50:27 AM : Electric-Received: Time 8 	 iter 1 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 8 	 iter 1 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 8,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 8 	 iter 1 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 8 	 iter 2 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 8 	 iter 2 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 8,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 8 	 iter 2 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 8 	 iter 3 	 PthgMargin = 322.9167 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 8 	 iter 3 	 Pthg = 677.0833 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 8,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 8 	 iter 3 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 8 	 iter 4 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 8 	 iter 4 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 8,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 8 	 iter 4 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 8 	 iter 5 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 8 	 iter 5 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 8, iteration: 5
+9/22/2022 3:50:27 AM : Granted time: 8,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 8 	 iter 5 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 9
+9/22/2022 3:50:27 AM : Granted time: 9
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 1 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 1 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 2 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 2 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 2 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 3 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 3 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 3 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 4 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 4 	 Pthg = 885.4167 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 4 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 5 	 PthgMargin = 114.5833 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 5 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 5
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 5 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 9 	 iter 6 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 9 	 iter 6 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 9, iteration: 6
+9/22/2022 3:50:27 AM : Granted time: 9,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 9 	 iter 6 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 10
+9/22/2022 3:50:27 AM : Granted time: 10
+9/22/2022 3:50:27 AM : Electric-Received: Time 10 	 iter 1 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 10 	 iter 1 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 10,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 10 	 iter 1 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 10 	 iter 2 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 10 	 iter 2 	 Pthg = 777.7778 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 10,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 10 	 iter 2 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 10 	 iter 3 	 PthgMargin = 222.2222 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 10 	 iter 3 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 10,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 10 	 iter 3 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 10 	 iter 4 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 10 	 iter 4 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 10, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 10,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 10 	 iter 4 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time 11
+9/22/2022 3:50:27 AM : Granted time: 11
+9/22/2022 3:50:27 AM : Electric-Received: Time 11 	 iter 1 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 11 	 iter 1 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 1
+9/22/2022 3:50:27 AM : Granted time: 11,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 11 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 11 	 iter 2 	 PthgMargin = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 11 	 iter 2 	 Pthg = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 2
+9/22/2022 3:50:27 AM : Granted time: 11,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 11 	 iter 2 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 11 	 iter 3 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 11 	 iter 3 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 3
+9/22/2022 3:50:27 AM : Granted time: 11,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 11 	 iter 3 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:27 AM : Electric-Received: Time 11 	 iter 4 	 PthgMargin = 583.3333 [MW]
+9/22/2022 3:50:27 AM : Electric-Recieved: Time 11 	 iter 4 	 Pthg = 416.6667 [MW]
+9/22/2022 3:50:27 AM : Requested time: 11, iteration: 4
+9/22/2022 3:50:27 AM : Granted time: 11,  Iteration status: 3
+9/22/2022 3:50:27 AM : Electric-Sent: Time 11 	 iter 4 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+9/22/2022 3:50:27 AM : Requested time: 12
+9/22/2022 3:50:27 AM : Electric: Federate finalized
+9/22/2022 3:50:28 AM : Electric: the solution diverged at the following time steps:
+9/22/2022 3:50:28 AM : Time-step 2
+9/22/2022 3:50:28 AM : Electric: The total number of diverging time steps = 1

@@ -1,5 +1,3 @@
-# SAInt log files
-*.log
 
 # bin/obj folders
 bin/
@@ -8,43 +6,5 @@ obj/
 # vs files
 .vs
 
-# outputs
-outputs/
-/HelicsDotNet/packages/UnmanagedExports.1.2.7
-/outputs.zip
-/HelicsDotNet/Networks/Case1_input.zip
-/HelicsDotNet/Networks/Case1/gsolin.txt
-/HelicsDotNet/Networks/Case1/GNET25.vtc
-/HelicsDotNet/Networks/Case1/GNET25.plg
-/HelicsDotNet/Networks/Case1/GNET25.lbl
-/HelicsDotNet/Networks/Case1/esolin.txt
-/HelicsDotNet/Networks/Case1/ENET30.vtc
-/HelicsDotNet/Networks/Case1/ENET30.plg
-/HelicsDotNet/Networks/Case1/ENET30.lbl
-/HelicsDotNet/Networks/Case1/CASE1.sol
-/HelicsDotNet/Networks/Case1/CASE1.esol
-/HelicsDotNet/Networks/Case1/CASE1.econ
-/HelicsDotNet/Networks/Case1/CASE1.con
-/HelicsDotNet/Networks/Belgium_Case0/QDYNOPF.esol
-/HelicsDotNet/Networks/Belgium_Case0/QDYNOPF.econ
-/HelicsDotNet/Networks/Belgium_Case0/gsolin.txt
-/HelicsDotNet/Networks/Belgium_Case0/GNETBENEWtest.vtc
-/HelicsDotNet/Networks/Belgium_Case0/GNETBENEWtest.plg
-/HelicsDotNet/Networks/Belgium_Case0/GNETBENEWtest.lbl
-/HelicsDotNet/Networks/Belgium_Case0/esolin.txt
-/HelicsDotNet/Networks/Belgium_Case0/EnetBelgiumtest.vtc
-/HelicsDotNet/Networks/Belgium_Case0/EnetBelgiumtest.plg
-/HelicsDotNet/Networks/Belgium_Case0/EnetBelgiumtest.lbl
-/HelicsDotNet/Networks/Belgium_Case0/DYN.sol
-/HelicsDotNet/Networks/Belgium_Case0/DYN.con
-/HelicsDotNet/Networks/Belgium_Case1/QDYNOPF.esol
-/HelicsDotNet/Networks/Belgium_Case1/QDYNOPF.econ
-/HelicsDotNet/Networks/Belgium_Case1/gsolin.txt
-/HelicsDotNet/Networks/Belgium_Case1/GNETBENEWtest.vtc
-/HelicsDotNet/Networks/Belgium_Case1/GNETBENEWtest.plg
-/HelicsDotNet/Networks/Belgium_Case1/GNETBENEWtest.lbl
-/HelicsDotNet/Networks/Belgium_Case1/EnetBelgiumtest.vtc
-/HelicsDotNet/Networks/Belgium_Case1/EnetBelgiumtest.plg
-/HelicsDotNet/Networks/Belgium_Case1/EnetBelgiumtest.lbl
-/HelicsDotNet/Networks/Belgium_Case1/DYN.sol
-/HelicsDotNet/Networks/Belgium_Case1/DYN.con
+.gitignore
+
