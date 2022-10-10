@@ -16,9 +16,10 @@ namespace SAIntHelicsLib
                 try
                 {
                     string logpath = @"..\..\..\..\outputs\Log.txt";
-                    using (StreamWriter WriterElec = new StreamWriter(logpath, Append))
+                    using (StreamWriter WriterLog = new StreamWriter(logpath, Append))
                     {
-                        WriterElec.WriteLine($"{DateTime.Now} : {message}");
+                        //WriterLog.WriteLine($"{DateTime.Now} : {message}");
+                        WriterLog.WriteLine(message);
                     }
                     break;
                 }

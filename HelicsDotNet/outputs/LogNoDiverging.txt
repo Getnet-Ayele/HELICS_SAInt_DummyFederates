@@ -1,0 +1,222 @@
+Creating Broker
+Broker Created
+Checking if Broker is connected
+Checked if Broker is connected
+Broker created and connected
+Electric: HELICS version =3.3.0 (2022-09-15)
+Electric: Creating Federate Info
+Electric: Setting Federate Core Type
+Electric: Setting Federate Info Init String
+Electric: Creating Value Federate
+Electric: Value federate created
+Electric: Setting Federate Timing
+Electric: Time period: 1
+Electric: Max iterations: 20
+Gas: HELICS version =3.3.0 (2022-09-15)
+Gas: Creating Federate Info
+Gas: Setting Federate Core Type
+Gas: Setting Federate Info Init String
+Gas: Creating Value Federate
+Gas: Value federate created
+Gas: Setting Federate Timing
+Gas: Time period: 1
+Gas: Max iterations: 20
+Gas: Entering execution mode
+Gas: Number of time steps in scenario: 12
+Gas: iteration flag: HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED
+Gas: Requested time 1
+Electric: Entering execution mode
+Electric: Number of time steps in scenario: 12
+Electric: iteration flag: HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED
+Electric delay = 0
+Electric: Requested time 1
+Electric: Granted time: 1
+Electric: Requested Time Iterative 1
+Electric: Granted Time Iterative: 1, iteration status: 0
+Electric-Sent: Time 1 	 iter 0 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+Electric: Requested Time Iterative: 1, iteration: 1
+Electric: Granted Time Iterative: 1,  Iteration Status: 0
+Electric-Received: Time 1 	 iter 1 	 PthgMargin = -10000000000000000000000000000000000000000000000000.0000 [MW]
+Gas: Granted time: 1, iteration status: 3
+Gas-Sent: Time 1 	 iter 0 	 Pthg = 1000.0000 [MW]
+Gas-Sent: Time 1 	 iter 0 	 PthgMargin = 1.0000 [MW]
+Gas: Requested Time Iterative: 1, iteration: 1
+Gas: Granted Time Iterative: 1, iteration status: 0
+Electric-Recieved: Time 1 	 iter 1 	 Pthg = -10000000000000000000000000000000000000000000000000.0000 [MW]
+Electric-Sent: Time 1 	 iter 1 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
+Electric: Requested time 2
+Gas-Received: Time 1 	 iter 1 	 Pthe = -10000000000000000000000000000000000000000000000000.0000 [MW]
+Gas-Event: Time 1 	 iter 1 	 Pthe = 100.0000 [MW]
+Gas-Sent: Time 1 	 iter 1 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 1 	 iter 1 	 PthgMargin = 10000000000000000000000000000000000000000000000000.0000 [MW]
+Gas: Requested time 2
+Gas: Granted time: 2, iteration status: 0
+Gas: Requested Time Iterative: 2, iteration: 1
+Gas: Granted Time Iterative: 2, iteration status: 0
+Gas-Received: Time 2 	 iter 1 	 Pthe = 677.0833 [MW]
+Electric: Granted time: 2
+Electric: Requested Time Iterative: 2, iteration: 1
+Electric: Granted Time Iterative: 2,  Iteration Status: 0
+Electric-Received: Time 2 	 iter 1 	 PthgMargin = 10000000000000000000000000000000000000000000000000.0000 [MW]
+Gas-Event: Time 2 	 iter 1 	 Pthe = 677.0833 [MW]
+Gas-Sent: Time 2 	 iter 1 	 Pthg = 677.0833 [MW]
+Gas-Sent: Time 2 	 iter 1 	 PthgMargin = 322.9167 [MW]
+Gas: Requested time 3
+Electric-Recieved: Time 2 	 iter 1 	 Pthg = 100.0000 [MW]
+Electric-Sent: Time 2 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+Electric: Requested time 3
+Electric: Granted time: 3
+Electric: Requested Time Iterative: 3, iteration: 1
+Electric: Granted Time Iterative: 3,  Iteration Status: 0
+Electric-Received: Time 3 	 iter 1 	 PthgMargin = 322.9167 [MW]
+Gas: Granted time: 3, iteration status: 0
+Gas: Requested Time Iterative: 3, iteration: 1
+Gas: Granted Time Iterative: 3, iteration status: 0
+Electric-Recieved: Time 3 	 iter 1 	 Pthg = 677.0833 [MW]
+Electric-Sent: Time 3 	 iter 1 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested time 4
+Gas-Received: Time 3 	 iter 1 	 Pthe = 416.6667 [MW]
+Gas-Event: Time 3 	 iter 1 	 Pthe = 416.6667 [MW]
+Gas-Sent: Time 3 	 iter 1 	 Pthg = 416.6667 [MW]
+Gas-Sent: Time 3 	 iter 1 	 PthgMargin = 583.3333 [MW]
+Gas: Requested time 4
+Gas: Granted time: 4, iteration status: 0
+Gas: Requested Time Iterative: 4, iteration: 1
+Gas: Granted Time Iterative: 4, iteration status: 0
+Electric: Granted time: 4
+Electric: Requested Time Iterative: 4, iteration: 1
+Electric: Granted Time Iterative: 4,  Iteration Status: 0
+Electric-Received: Time 4 	 iter 1 	 PthgMargin = 583.3333 [MW]
+Gas-Received: Time 4 	 iter 1 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 4 	 iter 1 	 Pthe = 100.0000 [MW]
+Gas-Sent: Time 4 	 iter 1 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 4 	 iter 1 	 PthgMargin = 916.6667 [MW]
+Gas: Requested time 5
+Electric-Recieved: Time 4 	 iter 1 	 Pthg = 416.6667 [MW]
+Electric-Sent: Time 4 	 iter 1 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+Electric: Requested time 5
+Electric: Granted time: 5
+Electric: Requested Time Iterative: 5, iteration: 1
+Electric: Granted Time Iterative: 5,  Iteration Status: 0
+Electric-Received: Time 5 	 iter 1 	 PthgMargin = 916.6667 [MW]
+Gas: Granted time: 5, iteration status: 0
+Gas: Requested Time Iterative: 5, iteration: 1
+Gas: Granted Time Iterative: 5, iteration status: 0
+Electric-Recieved: Time 5 	 iter 1 	 Pthg = 100.0000 [MW]
+Electric-Sent: Time 5 	 iter 1 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
+Electric: Requested time 6
+Gas-Received: Time 5 	 iter 1 	 Pthe = 1000.0000 [MW]
+Gas-Event: Time 5 	 iter 1 	 Pthe = 1000.0000 [MW]
+Gas-Sent: Time 5 	 iter 1 	 Pthg = 1000.0000 [MW]
+Gas-Sent: Time 5 	 iter 1 	 PthgMargin = 0.0000 [MW]
+Gas: Requested time 6
+Gas: Granted time: 6, iteration status: 0
+Gas: Requested Time Iterative: 6, iteration: 1
+Gas: Granted Time Iterative: 6, iteration status: 0
+Electric: Granted time: 6
+Electric: Requested Time Iterative: 6, iteration: 1
+Electric: Granted Time Iterative: 6,  Iteration Status: 0
+Electric-Received: Time 6 	 iter 1 	 PthgMargin = 0.0000 [MW]
+Gas-Received: Time 6 	 iter 1 	 Pthe = 166.6667 [MW]
+Gas-Event: Time 6 	 iter 1 	 Pthe = 166.6667 [MW]
+Gas-Sent: Time 6 	 iter 1 	 Pthg = 166.6667 [MW]
+Gas-Sent: Time 6 	 iter 1 	 PthgMargin = 833.3333 [MW]
+Gas: Requested time 7
+Electric-Recieved: Time 6 	 iter 1 	 Pthg = 1000.0000 [MW]
+Electric-Sent: Time 6 	 iter 1 	 Pthe = 1527.7778 [MW] 	 P = 100.0000 [MW]
+Electric: Requested time 7
+Electric: Granted time: 7
+Electric: Requested Time Iterative: 7, iteration: 1
+Electric: Granted Time Iterative: 7,  Iteration Status: 0
+Electric-Received: Time 7 	 iter 1 	 PthgMargin = 833.3333 [MW]
+Gas: Granted time: 7, iteration status: 0
+Gas: Requested Time Iterative: 7, iteration: 1
+Gas: Granted Time Iterative: 7, iteration status: 0
+Electric-Recieved: Time 7 	 iter 1 	 Pthg = 166.6667 [MW]
+Electric-Sent: Time 7 	 iter 1 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
+Electric: Requested time 8
+Gas-Received: Time 7 	 iter 1 	 Pthe = 1527.7778 [MW]
+Gas-Event: Time 7 	 iter 1 	 Pthe = 1000.0000 [MW]
+Gas-Sent: Time 7 	 iter 1 	 Pthg = 1000.0000 [MW]
+Gas-Sent: Time 7 	 iter 1 	 PthgMargin = -527.7778 [MW]
+Gas: Requested time 8
+Gas: Granted time: 8, iteration status: 0
+Gas: Requested Time Iterative: 8, iteration: 1
+Gas: Granted Time Iterative: 8, iteration status: 0
+Electric: Granted time: 8
+Electric: Requested Time Iterative: 8, iteration: 1
+Electric: Granted Time Iterative: 8,  Iteration Status: 0
+Electric-Received: Time 8 	 iter 1 	 PthgMargin = -527.7778 [MW]
+Gas-Received: Time 8 	 iter 1 	 Pthe = 1250.0000 [MW]
+Gas-Event: Time 8 	 iter 1 	 Pthe = 1000.0000 [MW]
+Gas-Sent: Time 8 	 iter 1 	 Pthg = 1000.0000 [MW]
+Gas-Sent: Time 8 	 iter 1 	 PthgMargin = -250.0000 [MW]
+Gas: Requested time 9
+Electric-Recieved: Time 8 	 iter 1 	 Pthg = 1000.0000 [MW]
+Electric-Sent: Time 8 	 iter 1 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+Electric: Requested time 9
+Gas: Granted time: 9, iteration status: 0
+Gas: Requested Time Iterative: 9, iteration: 1
+Gas: Granted Time Iterative: 9, iteration status: 0
+Electric: Granted time: 9
+Electric: Requested Time Iterative: 9, iteration: 1
+Electric: Granted Time Iterative: 9,  Iteration Status: 0
+Electric-Received: Time 9 	 iter 1 	 PthgMargin = -250.0000 [MW]
+Gas-Received: Time 9 	 iter 1 	 Pthe = 583.3333 [MW]
+Gas-Event: Time 9 	 iter 1 	 Pthe = 583.3333 [MW]
+Gas-Sent: Time 9 	 iter 1 	 Pthg = 583.3333 [MW]
+Gas-Sent: Time 9 	 iter 1 	 PthgMargin = 416.6667 [MW]
+Gas: Requested time 10
+Electric-Recieved: Time 9 	 iter 1 	 Pthg = 1000.0000 [MW]
+Electric-Sent: Time 9 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+Electric: Requested time 10
+Electric: Granted time: 10
+Electric: Requested Time Iterative: 10, iteration: 1
+Electric: Granted Time Iterative: 10,  Iteration Status: 0
+Electric-Received: Time 10 	 iter 1 	 PthgMargin = 416.6667 [MW]
+Gas: Granted time: 10, iteration status: 0
+Gas: Requested Time Iterative: 10, iteration: 1
+Gas: Granted Time Iterative: 10, iteration status: 0
+Electric-Recieved: Time 10 	 iter 1 	 Pthg = 583.3333 [MW]
+Electric-Sent: Time 10 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
+Electric: Requested time 11
+Gas-Received: Time 10 	 iter 1 	 Pthe = 777.7778 [MW]
+Gas-Event: Time 10 	 iter 1 	 Pthe = 777.7778 [MW]
+Gas-Sent: Time 10 	 iter 1 	 Pthg = 777.7778 [MW]
+Gas-Sent: Time 10 	 iter 1 	 PthgMargin = 222.2222 [MW]
+Gas: Requested time 11
+Gas: Granted time: 11, iteration status: 0
+Gas: Requested Time Iterative: 11, iteration: 1
+Gas: Granted Time Iterative: 11, iteration status: 0
+Electric: Granted time: 11
+Electric: Requested Time Iterative: 11, iteration: 1
+Electric: Granted Time Iterative: 11,  Iteration Status: 0
+Electric-Received: Time 11 	 iter 1 	 PthgMargin = 222.2222 [MW]
+Gas-Received: Time 11 	 iter 1 	 Pthe = 777.7778 [MW]
+Gas-Event: Time 11 	 iter 1 	 Pthe = 777.7778 [MW]
+Gas-Sent: Time 11 	 iter 1 	 Pthg = 777.7778 [MW]
+Gas-Sent: Time 11 	 iter 1 	 PthgMargin = 222.2222 [MW]
+Gas: Requested time 12
+Electric-Recieved: Time 11 	 iter 1 	 Pthg = 777.7778 [MW]
+Electric-Sent: Time 11 	 iter 1 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
+Electric: Requested time 12
+Electric: Granted time: 12
+Electric: Requested Time Iterative: 12, iteration: 1
+Electric: Granted Time Iterative: 12,  Iteration Status: 0
+Electric-Received: Time 12 	 iter 1 	 PthgMargin = 222.2222 [MW]
+Gas: Granted time: 12, iteration status: 0
+Gas: Requested Time Iterative: 12, iteration: 1
+Gas: Granted Time Iterative: 12, iteration status: 0
+Electric-Recieved: Time 12 	 iter 1 	 Pthg = 777.7778 [MW]
+Electric-Sent: Time 12 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+Electric: Requested Time: 13
+Gas-Received: Time 12 	 iter 1 	 Pthe = 583.3333 [MW]
+Gas-Event: Time 12 	 iter 1 	 Pthe = 583.3333 [MW]
+Gas-Sent: Time 12 	 iter 1 	 Pthg = 583.3333 [MW]
+Gas-Sent: Time 12 	 iter 1 	 PthgMargin = 416.6667 [MW]
+Gas: Requested Time: 13
+Electric: Federate finalized
+Gas: Federate finalized
+GasElectric: Broker disconnected
+Electric: There is no diverging time step.
+Gas: There is no diverging time step.
