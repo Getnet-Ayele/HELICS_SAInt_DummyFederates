@@ -78,8 +78,8 @@ namespace HelicsDotNetReceiver
             double granted_time = 0;
             double requested_time;
             
-            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
-            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
+            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
+            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
             Logger.WriteLog($"Gas: iteration flag: {iter_flag}", true);
 
             short Iter = 0;
@@ -203,7 +203,7 @@ namespace HelicsDotNetReceiver
 
                     PthermalNew[TimeStep-1] = Pthermal[TimeStep-1];
 
-                    if (Iter >= iter_max && HasViolations)
+                    if ((int)iter_flag == 1 && Iter == iter_max && HasViolations)
                     {
                         CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
                         notconverged.Add(CurrentDiverged);
@@ -213,7 +213,12 @@ namespace HelicsDotNetReceiver
 
                     if (helics_iter_status != (int)HelicsIterationResult.HELICS_ITERATION_RESULT_ITERATING)
                     {
-                        // Iter--;
+                        //Iter--;
+                        if (HasViolations && (int)iter_flag == 2)
+                        {
+                            CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
+                            notconverged.Add(CurrentDiverged);
+                        }
                         break;
                     }
 
