@@ -1,8 +1,5 @@
-TimeStep 	 IterStep
-1	20
-2	20
-5	20
-7	20
-9	20
-10	20
-0	20
+TimeStep 	IterStep
+3			20
+7			20
+8			20
+12			20

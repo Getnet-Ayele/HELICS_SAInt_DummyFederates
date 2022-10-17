@@ -17,7 +17,7 @@ namespace SAIntHelicsLib
 
             h.helicsPublicationPublishDouble(ElectricPub, ThermalPower);
             string message = String.Format("Electric-Sent: Time {0} \t iter {1} \t Pthe = {2:0.0000} [MW] \t P = {3:0.0000} [MW]",
-                gtime+1, step, ThermalPower, pval);
+                gtime, step, ThermalPower, pval);
             Console.WriteLine(message);
             Logger.WriteLog(message, true);
         }
@@ -26,12 +26,12 @@ namespace SAIntHelicsLib
         {
             h.helicsPublicationPublishDouble(GasPubPth, ThermalPower);
             string message = String.Format("Gas-Sent: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]",
-                gtime+1, step, ThermalPower);
+                gtime, step, ThermalPower);
             Console.WriteLine(message);
             Logger.WriteLog(message, true);
 
             h.helicsPublicationPublishDouble(GasPubPthMax, GasMin);
-            string message2 = String.Format("Gas-Sent: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", gtime+1, step, GasMin);
+            string message2 = String.Format("Gas-Sent: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", gtime, step, GasMin);
             Console.WriteLine(message2);
             Logger.WriteLog(message2, true);
         }
@@ -43,7 +43,7 @@ namespace SAIntHelicsLib
             // subscribe to available thermal power from gas node
             double valPth = h.helicsInputGetDouble(SubToGas);
 
-            string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime+1, step, valPth);
+            string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", gtime, step, valPth);
             Console.WriteLine(message);
             Logger.WriteLog(message, true);
 
