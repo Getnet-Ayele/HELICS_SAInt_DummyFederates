@@ -11,4 +11,3 @@ TimeStep 	 IterStep
 10				5
 11				5
 12				5
-	20
