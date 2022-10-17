@@ -114,6 +114,8 @@ namespace HelicsDotNetReceiver
 
                 Iter = 0; // Iteration number
 
+                GasLastVal.Clear();  // clear the list from previous time step
+
                 //HELICS time granted 
                 granted_time = h.helicsFederateRequestTime(vfed, TimeStep);
                 Console.WriteLine($"Gas: Granted Time: {granted_time}");
@@ -178,9 +180,9 @@ namespace HelicsDotNetReceiver
                     }
                     else
                     {
-                        if (GasLastVal.Count > 2)
+                        if (GasLastVal.Count > 3)
                         {
-                            if (Math.Abs(GasLastVal[GasLastVal.Count - 2] - GasLastVal[GasLastVal.Count - 1]) > 0.001)
+                            if (Math.Abs(GasLastVal[GasLastVal.Count-1] - GasLastVal[GasLastVal.Count - 2]) > 0.001)
                             {
                                 HasViolations = true;
                             }
@@ -193,6 +195,8 @@ namespace HelicsDotNetReceiver
 
                     Logger.WriteLog($"Gas - HasVioltation?: {HasViolations}", true);
                     Console.WriteLine($"Gas - HasVioltation?: {HasViolations}");
+
+
 
                     // HELICS time granted 
                     MappingFactory.PublishGasThermalPower(TimeStep, Iter, Pthermal[TimeStep-1], GasPubPth, (PthermalMax - val), GasPubPthMax);

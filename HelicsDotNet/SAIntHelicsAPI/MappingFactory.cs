@@ -60,9 +60,9 @@ namespace SAIntHelicsLib
             }
             else
             {
-                if (ElecLastVal.Count > 2)
+                if (ElecLastVal.Count > 3)
                 {
-                    if (Math.Abs(ElecLastVal[ElecLastVal.Count - 1] - ElecLastVal[ElecLastVal.Count - 2]) > 0.001)
+                    if (Math.Abs(ElecLastVal[ElecLastVal.Count-2] - ElecLastVal[ElecLastVal.Count - 1]) > 0.001)
                     {
                         HasViolations = true;
                     }

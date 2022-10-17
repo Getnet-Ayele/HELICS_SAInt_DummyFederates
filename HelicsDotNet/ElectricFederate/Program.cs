@@ -135,6 +135,8 @@ namespace HelicsDotNetSender
                 
                 Iter = 0; // Iteration number
 
+               ElecLastVal.Clear();  // clear the list from previous time step
+
                 // Initial publication of thermal power request equivalent to PGMAX for time = 0 and iter = 0;
                 if (TimeStep == 0)
                 {
@@ -180,10 +182,10 @@ namespace HelicsDotNetSender
 
                     if (HasViolations)
                     {
-                        if (GasMin < 0 && P[TimeStep-1]>10)
-                        { 
-                            P[TimeStep-1] -=5; 
-                        }                       
+                        if (GasMin < 0 && P[TimeStep - 1] > 10)
+                        {
+                            P[TimeStep - 1] -= 5;
+                        }
                     }
 
                     PNew[TimeStep-1] = P[TimeStep-1];
