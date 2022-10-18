@@ -30,10 +30,10 @@ namespace SAIntHelicsLib
             Console.WriteLine(message);
             Logger.WriteLog(message, true);
 
-            //h.helicsPublicationPublishDouble(GasPubPthMax, GasMin);
-            //string message2 = String.Format("Gas-Sent: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", gtime, step, GasMin);
-            //Console.WriteLine(message2);
-            //Logger.WriteLog(message2, true);
+            h.helicsPublicationPublishDouble(GasPubPthMax, GasMin);
+            string message2 = String.Format("Gas-Sent: Time {0} \t iter {1} \t Reserve = {2:0.0000} [MW]", gtime, step, GasMin);
+            Console.WriteLine(message2);
+            Logger.WriteLog(message2, true);
         }
 
         public static bool SubscribeToGasThermalPower(double gtime, int step, double pval, SWIGTYPE_p_void SubToGas, List<double> ElecLastVal)

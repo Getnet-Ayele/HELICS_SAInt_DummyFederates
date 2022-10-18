@@ -121,12 +121,13 @@ namespace HelicsDotNetSender
 
                 // subscribe to available thermal power from gas node
                 double valPth = h.helicsInputGetDouble(SubToGas);
+                double valGasMin = h.helicsInputGetDouble(SubToGasMin);
 
                 string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", TimeStep, Iter, valPth);
                 Console.WriteLine(message);
                 Logger.WriteLog(message, true);
 
-                if (valPth == 1000)
+                if (valPth == 1000 && valGasMin >=0)
                 {
                     continue;
                 }
@@ -139,8 +140,8 @@ namespace HelicsDotNetSender
                         
 
             // Artificial delay
-            int delay = 520;
-            int AfterTimeStep = 0;
+            int delay = 10;
+            int AfterTimeStep = 4;
             Logger.WriteLog($"Electric delay = {delay}", true); 
 
             // Switch to release mode to enable console output to file 
@@ -200,23 +201,32 @@ namespace HelicsDotNetSender
                     }
 
                     HasViolations = MappingFactory.SubscribeToGasThermalPower(TimeStep, Iter, P[TimeStep], SubToGas, ElecLastVal);
+                    double valGasMin = h.helicsInputGetDouble(SubToGasMin);
+                    string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Reserve = {2:0.0000} [MW]", TimeStep, Iter, valGasMin);
+                    Console.WriteLine(message);
+                    Logger.WriteLog(message, true);
 
                     Logger.WriteLog($"Electric - HasVioltation?: {HasViolations}",true);
                     Console.WriteLine($"Electric - HasVioltation?: {HasViolations}");
 
                     if (HasViolations)
                     {
-                        //if (GasMin < 0 && P[TimeStep - 1] > 10)
-                        if (P[TimeStep] > 80)
+                        if (valGasMin < 0 && P[TimeStep] > 10)
                         {
+                            double Pold = P[TimeStep];
                             P[TimeStep] -= 5;
+
+                            string message1 = String.Format("Electric-Event: Time {0} \t iter {1} \t P_old = {2:0.00} [MW] \t P_new= {3:0.00} [MW]", TimeStep, Iter, Pold, P[TimeStep]);
+                            Console.WriteLine(message1);
+                            Logger.WriteLog(message1, true);
                         }
 
                         PNew[TimeStep] = P[TimeStep];
 
-                        MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep], ElectricPub);
-
                         Iter += 1;
+
+                        MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep], ElectricPub);
+                        
                     }
 
                     else

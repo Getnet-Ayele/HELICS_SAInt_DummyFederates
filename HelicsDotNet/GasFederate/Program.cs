@@ -228,7 +228,8 @@ namespace HelicsDotNetReceiver
 
                     if (HasViolations)
                     {
-                        // HELICS time granted 
+                        
+                        Iter += 1;
                         MappingFactory.PublishGasThermalPower(TimeStep, Iter, Pthermal[TimeStep], GasPubPth, (PthermalMax - val), GasPubPthMax);
 
                         PthermalNew[TimeStep] = Pthermal[TimeStep];
@@ -241,9 +242,7 @@ namespace HelicsDotNetReceiver
                         Logger.WriteLog($"Gas: Time Step {TimeStep} Converged!", true);
 
                         //continue;
-                    }                
-
-                    Iter += 1;
+                    } 
                 }
 
                 if (Iter == iter_max && HasViolations)
