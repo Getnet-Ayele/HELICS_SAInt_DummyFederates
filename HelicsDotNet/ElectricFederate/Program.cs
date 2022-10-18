@@ -61,15 +61,11 @@ namespace HelicsDotNetSender
             Logger.WriteLog($"Electric: Time period: {period_set}", true);
 
             // set max iteration at 20
-            h.helicsFederateSetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS, 10);
+            h.helicsFederateSetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS, 20);
             int iter_max = h.helicsFederateGetIntegerProperty(vfed, (int)HelicsProperties.HELICS_PROPERTY_INT_MAX_ITERATIONS);
             Console.WriteLine($"Electric: Max iterations: {iter_max}");
             Logger.WriteLog($"Electric: Max iterations: {iter_max}", true);
 
-            // start execution mode
-            h.helicsFederateEnterExecutingMode(vfed);
-            Console.WriteLine("Electric: Entering execution mode");
-            Logger.WriteLog("Electric: Entering execution mode", true);
 
             // Synthetic data
             double[] P = { 70, 50, 20, 80, 30, 100, 90, 65, 75, 70, 60, 50 };
@@ -83,18 +79,6 @@ namespace HelicsDotNetSender
             Console.WriteLine($"Electric: Number of time steps in scenario: {total_time}");
             Logger.WriteLog($"Electric: Number of time steps in scenario: {total_time}", true);
 
-            double granted_time = 0;
-            double requested_time;
-
-            //var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
-            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_FORCE_ITERATION;
-            Logger.WriteLog($"\nElectric: iteration flag: {iter_flag}", true);
-
-            // Artificial delay
-            int delay = 0;
-            int AfterTimeStep = 0;
-            Logger.WriteLog($"Electric delay = {delay}", true); 
-
             // variables to control iterations
             short Iter = 0;
             List<TimeStepInfo> timestepinfo = new List<TimeStepInfo>();
@@ -104,10 +88,60 @@ namespace HelicsDotNetSender
 
             List<double> ElecLastVal = new List<double>();
 
-            int TimeStep;
-            bool IsRepeating;
+            int TimeStep = 0;
             bool HasViolations;
             int helics_iter_status = 3;
+
+            double granted_time = 0;
+            double requested_time;
+
+            var iter_flag = HelicsIterationRequest.HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED;
+            Logger.WriteLog($"\nElectric: iteration flag: {iter_flag}", true);
+
+            // Initialization and entering iterative execution mode
+            Console.WriteLine("\nElectric: Entering Initialization Mode");
+            Logger.WriteLog("\nElectric: Entering Iitialization Mode", true);
+            h.helicsFederateEnterInitializingMode(vfed);
+            MappingFactory.PublishElectricPower(TimeStep, 0, 80, ElectricPub);
+
+            while (true)
+            {
+                //h.helicsFederateEnterExecutingMode(vfed);
+                
+                Console.WriteLine("\nElectric: Entering Iterative Execution Mode\n");
+                Logger.WriteLog("\nElectric: Entering Iterative Execution Mode\n", true);
+                HelicsIterationResult itr_status = h.helicsFederateEnterExecutingModeIterative(vfed, iter_flag);
+
+                if (itr_status == HelicsIterationResult.HELICS_ITERATION_RESULT_NEXT_STEP)
+                {
+                    Console.WriteLine($"Electric: Time Step {TimeStep} Initialization Completed!");
+                    Logger.WriteLog($"Electric: Time Step {TimeStep} Initialization Completed!", true);
+                    break;
+                }
+
+                // subscribe to available thermal power from gas node
+                double valPth = h.helicsInputGetDouble(SubToGas);
+
+                string message = String.Format("Electric-Recieved: Time {0} \t iter {1} \t Pthg = {2:0.0000} [MW]", TimeStep, Iter, valPth);
+                Console.WriteLine(message);
+                Logger.WriteLog(message, true);
+
+                if (valPth == 1000)
+                {
+                    continue;
+                }
+                else
+                {
+                    Iter += 1;
+                    MappingFactory.PublishElectricPower(TimeStep, 0, 80, ElectricPub);
+                }
+            }
+                        
+
+            // Artificial delay
+            int delay = 520;
+            int AfterTimeStep = 0;
+            Logger.WriteLog($"Electric delay = {delay}", true); 
 
             // Switch to release mode to enable console output to file 
 #if !DEBUG
@@ -120,37 +154,21 @@ namespace HelicsDotNetSender
             Console.SetOut(writer);
 #endif
             // Main function to be executed on the input data
-            for (TimeStep = 1; TimeStep < total_time+1; TimeStep++)
-            {
-                //if (TimeStep == 1)
-                //{
-                MappingFactory.PublishElectricPower(TimeStep, 0, P[TimeStep - 1], ElectricPub);
-                //}
-
-                // non-iterative time request here to block until both federates are done iterating the last time step
-                Console.WriteLine($"\nElectric: Requested Time Step {TimeStep}");
-                Logger.WriteLog($"\nElectric: Requested Time Step {TimeStep}", true);                
-
-                // HELICS time granted 
-                granted_time = h.helicsFederateRequestTime(vfed, TimeStep);
-                Console.WriteLine($"Electric: Granted Time: {granted_time}, Iteration Status: { helics_iter_status}");
-                Logger.WriteLog($"Electric: Granted Time: {granted_time}, Iteration Status: { helics_iter_status}\n", true);
-
-                IsRepeating = true;
+            for (TimeStep = 0; TimeStep < total_time; TimeStep++)
+            {                
                 HasViolations = true;
-                
+
                 Iter = 0; // Iteration number
 
-               ElecLastVal.Clear();  // clear the list from previous time step
-
-                // Initial publication of thermal power request equivalent to PGMAX for time = 0 and iter = 0;
-               //MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep - 1], ElectricPub);
+                ElecLastVal.Clear();  // clear the list from previous time step
 
                 // Set time step info
                 currenttimestep = new TimeStepInfo() { timestep = TimeStep, itersteps = 0 };
                 timestepinfo.Add(currenttimestep);
 
-                while (IsRepeating && Iter<iter_max)
+                MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep], ElectricPub);       
+                
+                while (Iter < iter_max)
                 {
 
                     // Artificial delay
@@ -163,29 +181,25 @@ namespace HelicsDotNetSender
                         }
                     }
 
-                    // stop iterating if max iterations have been reached                    
-                    Iter += 1;
                     currenttimestep.itersteps += 1;
 
-                    if (Iter > 1)
+                    Console.WriteLine($"Electric: Requested Time Iterative: {TimeStep}, iteration: {Iter}");
+                    Logger.WriteLog($"Electric: Requested Time Iterative: {TimeStep}, iteration: {Iter}", true);
+
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep+1, iter_flag, out helics_iter_status);
+
+                    Console.WriteLine($"Electric: Granted Time Iterative: {granted_time},  Iteration Status: {helics_iter_status}");
+                    Logger.WriteLog($"Electric: Granted Time Iterative: {granted_time},  Iteration Status: {helics_iter_status}", true);
+
+                    if (helics_iter_status == (int)HelicsIterationResult.HELICS_ITERATION_RESULT_NEXT_STEP)
                     {
-                        Console.WriteLine($"Electric: Requested Time Iterative: {TimeStep}, iteration: {Iter}");
-                        Logger.WriteLog($"Electric: Requested Time Iterative: {TimeStep}, iteration: {Iter}", true);
+                        Console.WriteLine($"Electric: Time Step {TimeStep} Iteration Completed!");
+                        Logger.WriteLog($"Electric: Time Step {TimeStep} Iteration Completed!", true);
 
-                        granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
-
-                        Console.WriteLine($"Electric: Granted Time Iterative: {granted_time},  Iteration Status: {helics_iter_status}");
-                        Logger.WriteLog($"Electric: Granted Time Iterative: {granted_time},  Iteration Status: {helics_iter_status}", true);
+                        break;
                     }
 
-                //double GasMin = h.helicsInputGetDouble(SubToGasMin);
-                // Console.WriteLine(String.Format("Electric-Received: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", TimeStep, Iter, GasMin));
-                //Logger.WriteLog(String.Format("Electric-Received: Time {0} \t iter {1} \t PthgMargin = {2:0.0000} [MW]", TimeStep, Iter, GasMin), true);
-
-                //MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep - 1], ElectricPub);
-                // get available thermal power at nodes, determine if there are violations
-                // granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
-                HasViolations = MappingFactory.SubscribeToGasThermalPower(TimeStep, Iter, P[TimeStep-1], SubToGas, ElecLastVal);
+                    HasViolations = MappingFactory.SubscribeToGasThermalPower(TimeStep, Iter, P[TimeStep], SubToGas, ElecLastVal);
 
                     Logger.WriteLog($"Electric - HasVioltation?: {HasViolations}",true);
                     Console.WriteLine($"Electric - HasVioltation?: {HasViolations}");
@@ -193,34 +207,32 @@ namespace HelicsDotNetSender
                     if (HasViolations)
                     {
                         //if (GasMin < 0 && P[TimeStep - 1] > 10)
-                        if ( P[TimeStep - 1] > 80)
+                        if (P[TimeStep] > 80)
                         {
-                            P[TimeStep - 1] -= 5;
+                            P[TimeStep] -= 5;
                         }
+
+                        PNew[TimeStep] = P[TimeStep];
+
+                        MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep], ElectricPub);
+
+                        Iter += 1;
                     }
 
-                    PNew[TimeStep-1] = P[TimeStep-1];
-
-                    if ((int)iter_flag == 1 && Iter == iter_max && HasViolations)
+                    else
                     {
-                        CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
-                        notconverged.Add(CurrentDiverged);
+                        Console.WriteLine($"Electric: Time Step {TimeStep} Converged!");
+                        Logger.WriteLog($"Electric: Time Step {TimeStep} Converged!", true);
+
+                        //continue;
                     }
 
-                    MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep-1], ElectricPub);
+                }
 
-                    IsRepeating = HasViolations;
-
-                    if (helics_iter_status != (int)HelicsIterationResult.HELICS_ITERATION_RESULT_ITERATING)
-                    {
-                        //Iter--;
-                        if (HasViolations && (int)iter_flag == 2)
-                        {
-                            CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
-                            notconverged.Add(CurrentDiverged);
-                        }
-                        break;
-                    }
+                if (Iter == iter_max && HasViolations)
+                {
+                    CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
+                    notconverged.Add(CurrentDiverged);
                 }
             }
 

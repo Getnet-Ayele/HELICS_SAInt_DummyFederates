@@ -11,4 +11,3 @@ TimeStep	 PelectricOld[MW]	 PelectricNew[MW]
 10				70.00				70.00
 11				60.00				60.00
 12				50.00				50.00
-

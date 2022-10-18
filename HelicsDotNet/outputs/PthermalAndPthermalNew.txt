@@ -11,4 +11,3 @@ TimeStep	PthermalOld[MW]	PthermalNew[MW]	PthermalMin[MW]	PthermalMax[MW]
 10			200.00			777.78			100.00				 1000.00
 11			200.00			583.33			100.00				 1000.00
 12			200.00			416.67			100.00				 1000.00
-
