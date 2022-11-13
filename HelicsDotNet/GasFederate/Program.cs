@@ -167,7 +167,7 @@ namespace HelicsDotNetReceiver
                     Console.WriteLine($"Gas: Requested Time Iterative: {TimeStep}, iteration: {Iter}");
                     Logger.WriteLog($"Gas: Requested Time Iterative: {TimeStep}, iteration: {Iter}", true);
 
-                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep+1, iter_flag, out helics_iter_status);
+                    granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
 
                     Console.WriteLine($"Gas: Granted Time Iterative: {granted_time}, IterationStatus: {helics_iter_status}");
                     Logger.WriteLog($"Gas: Granted Time Iterative: {granted_time}, Iteration Status: {helics_iter_status}", true);

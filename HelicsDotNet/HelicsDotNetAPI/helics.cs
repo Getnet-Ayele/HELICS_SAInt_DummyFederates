@@ -59,13 +59,15 @@ public enum HelicsFederateFlags {
   HELICS_FLAG_FORWARD_COMPUTE = 14,
   HELICS_FLAG_REALTIME = 16,
   HELICS_FLAG_SINGLE_THREAD_FEDERATE = 27,
+  HELICS_FLAG_MULTI_THREAD_CORE = 28,
+  HELICS_FLAG_SINGLE_THREAD_CORE = 29,
   HELICS_FLAG_IGNORE_TIME_MISMATCH_WARNINGS = 67,
   HELICS_FLAG_STRICT_CONFIG_CHECKING = 75,
   HELICS_FLAG_USE_JSON_SERIALIZATION = 79,
   HELICS_FLAG_EVENT_TRIGGERED = 81,
   HELICS_FLAG_LOCAL_PROFILING_CAPTURE = 96,
   HELICS_FLAG_CALLBACK_FEDERATE = 103,
-  HELICS_FLAG_AUTOMATED_TIMEREQUEST = 106
+  HELICS_FLAG_AUTOMATED_TIME_REQUEST = 106
 }
 
 public enum HelicsCoreFlags {
@@ -81,7 +83,9 @@ public enum HelicsFlags {
   HELICS_FLAG_FORCE_LOGGING_FLUSH = 88,
   HELICS_FLAG_DUMPLOG = 89,
   HELICS_FLAG_PROFILING = 93,
-  HELICS_FLAG_PROFILING_MARKER = 95
+  HELICS_FLAG_PROFILING_MARKER = 95,
+  HELICS_FLAG_ALLOW_REMOTE_CONTROL = 109,
+  HELICS_FLAG_DISABLE_REMOTE_CONTROL = 110
 }
 
 public enum HelicsLogLevels {
@@ -129,13 +133,15 @@ public enum HelicsProperties {
   HELICS_PROPERTY_TIME_RT_TOLERANCE = 145,
   HELICS_PROPERTY_TIME_INPUT_DELAY = 148,
   HELICS_PROPERTY_TIME_OUTPUT_DELAY = 150,
-  HELICS_PROPERTY_TIME_MAXTIME = 152,
+  HELICS_PROPERTY_TIME_STOPTIME = 152,
   HELICS_PROPERTY_TIME_GRANT_TIMEOUT = 161,
+  HELICS_PROPERTY_INT_CURRENT_ITERATION = 258,
   HELICS_PROPERTY_INT_MAX_ITERATIONS = 259,
   HELICS_PROPERTY_INT_LOG_LEVEL = 271,
   HELICS_PROPERTY_INT_FILE_LOG_LEVEL = 272,
   HELICS_PROPERTY_INT_CONSOLE_LOG_LEVEL = 274,
-  HELICS_PROPERTY_INT_LOG_BUFFER = 276
+  HELICS_PROPERTY_INT_LOG_BUFFER = 276,
+  HELICS_PROPERTY_INT_INDEX_GROUP = 282
 }
 
 public enum HelicsMultiInputModes {
@@ -900,11 +906,20 @@ class helicsPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterInitializingModeAsync")]
   public static extern void helicsFederateEnterInitializingModeAsync(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateIsAsyncOperationCompleted")]
-  public static extern int helicsFederateIsAsyncOperationCompleted(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterInitializingModeComplete")]
   public static extern void helicsFederateEnterInitializingModeComplete(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterInitializingModeIterative")]
+  public static extern void helicsFederateEnterInitializingModeIterative(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterInitializingModeIterativeAsync")]
+  public static extern void helicsFederateEnterInitializingModeIterativeAsync(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterInitializingModeIterativeComplete")]
+  public static extern void helicsFederateEnterInitializingModeIterativeComplete(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateIsAsyncOperationCompleted")]
+  public static extern int helicsFederateIsAsyncOperationCompleted(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateEnterExecutingMode")]
   public static extern void helicsFederateEnterExecutingMode(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -984,6 +999,9 @@ class helicsPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateGetCurrentTime")]
   public static extern double helicsFederateGetCurrentTime(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateAddAlias")]
+  public static extern void helicsFederateAddAlias(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
+
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsFederateSetGlobal")]
   public static extern void helicsFederateSetGlobal(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
 
@@ -1031,6 +1049,12 @@ class helicsPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsBrokerSetGlobal")]
   public static extern void helicsBrokerSetGlobal(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCoreAddAlias")]
+  public static extern void helicsCoreAddAlias(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsBrokerAddAlias")]
+  public static extern void helicsBrokerAddAlias(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("CShelics", EntryPoint="CSharp_helicsCoreSendCommand")]
   public static extern void helicsCoreSendCommand(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3);
@@ -2475,15 +2499,30 @@ public class helics {
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public static void helicsFederateEnterInitializingModeComplete(SWIGTYPE_p_void fed) {
+    helicsPINVOKE.helicsFederateEnterInitializingModeComplete(SWIGTYPE_p_void.getCPtr(fed));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateEnterInitializingModeIterative(SWIGTYPE_p_void fed) {
+    helicsPINVOKE.helicsFederateEnterInitializingModeIterative(SWIGTYPE_p_void.getCPtr(fed));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateEnterInitializingModeIterativeAsync(SWIGTYPE_p_void fed) {
+    helicsPINVOKE.helicsFederateEnterInitializingModeIterativeAsync(SWIGTYPE_p_void.getCPtr(fed));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsFederateEnterInitializingModeIterativeComplete(SWIGTYPE_p_void fed) {
+    helicsPINVOKE.helicsFederateEnterInitializingModeIterativeComplete(SWIGTYPE_p_void.getCPtr(fed));
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public static int helicsFederateIsAsyncOperationCompleted(SWIGTYPE_p_void fed) {
     int ret = helicsPINVOKE.helicsFederateIsAsyncOperationCompleted(SWIGTYPE_p_void.getCPtr(fed));
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
     return ret;
-  }
-
-  public static void helicsFederateEnterInitializingModeComplete(SWIGTYPE_p_void fed) {
-    helicsPINVOKE.helicsFederateEnterInitializingModeComplete(SWIGTYPE_p_void.getCPtr(fed));
-    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public static void helicsFederateEnterExecutingMode(SWIGTYPE_p_void fed) {
@@ -2631,6 +2670,11 @@ public class helics {
     return ret;
   }
 
+  public static void helicsFederateAddAlias(SWIGTYPE_p_void fed, string interfaceName, string alias) {
+    helicsPINVOKE.helicsFederateAddAlias(SWIGTYPE_p_void.getCPtr(fed), interfaceName, alias);
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public static void helicsFederateSetGlobal(SWIGTYPE_p_void fed, string valueName, string value) {
     helicsPINVOKE.helicsFederateSetGlobal(SWIGTYPE_p_void.getCPtr(fed), valueName, value);
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
@@ -2712,6 +2756,16 @@ public class helics {
 
   public static void helicsBrokerSetGlobal(SWIGTYPE_p_void broker, string valueName, string value) {
     helicsPINVOKE.helicsBrokerSetGlobal(SWIGTYPE_p_void.getCPtr(broker), valueName, value);
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsCoreAddAlias(SWIGTYPE_p_void core, string interfaceName, string alias) {
+    helicsPINVOKE.helicsCoreAddAlias(SWIGTYPE_p_void.getCPtr(core), interfaceName, alias);
+    if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void helicsBrokerAddAlias(SWIGTYPE_p_void broker, string interfaceName, string alias) {
+    helicsPINVOKE.helicsBrokerAddAlias(SWIGTYPE_p_void.getCPtr(broker), interfaceName, alias);
     if (helicsPINVOKE.SWIGPendingException.Pending) throw helicsPINVOKE.SWIGPendingException.Retrieve();
   }
 
