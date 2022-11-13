@@ -169,7 +169,7 @@ namespace HelicsDotNetSender
 
                 MappingFactory.PublishElectricPower(TimeStep, Iter, P[TimeStep], ElectricPub);       
                 
-                while (Iter < iter_max)
+                while (Iter <= iter_max)
                 {
 
                     // Artificial delay
@@ -236,13 +236,12 @@ namespace HelicsDotNetSender
 
                         //continue;
                     }
-
-                }
-
-                if (Iter == iter_max && HasViolations)
-                {
-                    CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
-                    notconverged.Add(CurrentDiverged);
+                    if (Iter == iter_max && HasViolations)
+                    {
+                        granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
+                        CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
+                        notconverged.Add(CurrentDiverged);
+                    }
                 }
             }
 

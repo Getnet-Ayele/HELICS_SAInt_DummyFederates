@@ -158,7 +158,7 @@ namespace HelicsDotNetReceiver
 
                 MappingFactory.PublishGasThermalPower(TimeStep, Iter, Pthermal[TimeStep], GasPubPth, (PthermalMax - val), GasPubPthMax);
 
-                while (Iter < iter_max)
+                while (Iter <= iter_max)
                 {                                       
                     currenttimestep.itersteps += 1;
 
@@ -242,14 +242,15 @@ namespace HelicsDotNetReceiver
                         Logger.WriteLog($"Gas: Time Step {TimeStep} Converged!", true);
 
                         //continue;
-                    } 
+                    }
+                    if (Iter == iter_max && HasViolations)
+                    {
+                        granted_time = h.helicsFederateRequestTimeIterative(vfed, TimeStep, iter_flag, out helics_iter_status);
+                        CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
+                        notconverged.Add(CurrentDiverged);
+                    }
                 }
 
-                if (Iter == iter_max && HasViolations)
-                {
-                    CurrentDiverged = new TimeStepInfo() { timestep = TimeStep, itersteps = Iter };
-                    notconverged.Add(CurrentDiverged);
-                }
             }
 
             // request time for end of time + 1: serves as a blocking call until all federates are complete

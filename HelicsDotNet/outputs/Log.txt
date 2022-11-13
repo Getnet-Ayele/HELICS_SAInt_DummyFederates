@@ -3,21 +3,11 @@ Broker Created
 Checking if Broker is connected
 Checked if Broker is connected
 Broker created and connected
-Electric: HELICS version =3.3.0 (2022-09-15)
+Electric: HELICS version =3.3.1-develop-g7faae24e3 (2022-11-13)
 Electric: Creating Federate Info
-Gas: HELICS version =3.3.0 (2022-09-15)
-Gas: Creating Federate Info
-Gas: Setting Federate Core Type
-Gas: Setting Federate Info Init String
-Gas: Creating Value Federate
 Electric: Setting Federate Core Type
 Electric: Setting Federate Info Init String
 Electric: Creating Value Federate
-Gas: Value federate created
-Gas: Setting Federate Timing
-Gas: Time period: 1
-Gas: Max iterations: 20
-Gas: Number of time steps in scenario: 12
 Electric: Value federate created
 Electric: Setting Federate Timing
 Electric: Time period: 1
@@ -27,6 +17,16 @@ Electric: Number of time steps in scenario: 12
 Electric: iteration flag: HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED
 
 Electric: Entering Iitialization Mode
+Gas: HELICS version =3.3.1-develop-g7faae24e3 (2022-11-13)
+Gas: Creating Federate Info
+Gas: Setting Federate Core Type
+Gas: Setting Federate Info Init String
+Gas: Creating Value Federate
+Gas: Value federate created
+Gas: Setting Federate Timing
+Gas: Time period: 1
+Gas: Max iterations: 20
+Gas: Number of time steps in scenario: 12
 
 Gas: iteration flag: HELICS_ITERATION_REQUEST_ITERATE_IF_NEEDED
 
@@ -35,10 +35,14 @@ Gas: Entering Iitialization Mode
 Gas-Sent: Time 0 	 iter 0 	 Pthg = 1000.0000 [MW]
 Gas-Sent: Time 0 	 iter 0 	 Reserve = 1000.0000 [MW]
 
-Electric-Sent: Time 0 	 iter 0 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
-
 Gas: Entering Iterative Execution Mode
 
+
+Electric-Sent: Time 0 	 iter 0 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
+
+Electric: Entering Iterative Execution Mode
+
+Electric-Recieved: Time 0 	 iter 0 	 Pthg = 1000.0000 [MW]
 
 Electric: Entering Iterative Execution Mode
 
@@ -53,93 +57,42 @@ Electric-Recieved: Time 0 	 iter 0 	 Pthg = 1000.0000 [MW]
 
 Electric: Entering Iterative Execution Mode
 
-Electric-Recieved: Time 0 	 iter 0 	 Pthg = 1000.0000 [MW]
-
-Electric: Entering Iterative Execution Mode
-
-Gas: Time Step 0 Initialization Completed!
-
-Gas-Sent: Time 0 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 0 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 0, iteration: 0
 Electric: Time Step 0 Initialization Completed!
 Electric delay = 10
 
 Electric-Sent: Time 0 	 iter 0 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
 Electric: Requested Time Iterative: 0, iteration: 0
-Gas: Granted Time Iterative: 0, Iteration Status: 3
-Electric: Granted Time Iterative: 0,  Iteration Status: 3
-Gas-Received: Time 0 	 iter 0 	 Pthe = 777.7778 [MW]
-Electric-Recieved: Time 0 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Event: Time 0 	 iter 0 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 0 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 0 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 0, iteration: 1
-
-Gas-Sent: Time 0 	 iter 1 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 0 	 iter 1 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 0, iteration: 1
-Electric: Granted Time Iterative: 0,  Iteration Status: 3
-Electric-Recieved: Time 0 	 iter 1 	 Pthg = 777.7778 [MW]
-Gas: Granted Time Iterative: 0, Iteration Status: 3
-Electric-Recieved: Time 0 	 iter 1 	 Reserve = 222.2222 [MW]
-Electric - HasVioltation?: True
-Gas-Received: Time 0 	 iter 1 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-
-Electric-Sent: Time 0 	 iter 2 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 0, iteration: 2
-
-Gas-Sent: Time 0 	 iter 2 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 0 	 iter 2 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 0, iteration: 2
-Gas: Granted Time Iterative: 0, Iteration Status: 3
-Gas-Received: Time 0 	 iter 2 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 0 	 iter 3 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 0 	 iter 3 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 0, iteration: 3
-Electric: Granted Time Iterative: 0,  Iteration Status: 3
-Electric-Recieved: Time 0 	 iter 2 	 Pthg = 777.7778 [MW]
-Electric-Recieved: Time 0 	 iter 2 	 Reserve = 222.2222 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 0 	 iter 3 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 0, iteration: 3
-Electric: Granted Time Iterative: 0,  Iteration Status: 3
-Gas: Granted Time Iterative: 0, Iteration Status: 3
-Electric-Recieved: Time 0 	 iter 3 	 Pthg = 777.7778 [MW]
-Electric-Recieved: Time 0 	 iter 3 	 Reserve = 222.2222 [MW]
-Electric - HasVioltation?: False
-Gas-Received: Time 0 	 iter 3 	 Pthe = 777.7778 [MW]
-Electric: Time Step 0 Converged!
-Gas - HasVioltation?: False
-Electric: Requested Time Iterative: 0, iteration: 3
-Gas: Time Step 0 Converged!
-Gas: Requested Time Iterative: 0, iteration: 3
-Gas: Granted Time Iterative: 1, Iteration Status: 0
-Gas: Time Step 0 Iteration Completed!
-
-Gas-Sent: Time 1 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric: Granted Time Iterative: 1,  Iteration Status: 0
-Gas-Sent: Time 1 	 iter 0 	 Reserve = 1000.0000 [MW]
+Electric: Granted Time Iterative: 0,  Iteration Status: 0
 Electric: Time Step 0 Iteration Completed!
 
 Electric-Sent: Time 1 	 iter 0 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
 Electric: Requested Time Iterative: 1, iteration: 0
+Gas: Time Step 0 Initialization Completed!
+
+Gas-Sent: Time 0 	 iter 0 	 Pthg = 200.0000 [MW]
+Gas-Sent: Time 0 	 iter 0 	 Reserve = 1000.0000 [MW]
+Gas: Requested Time Iterative: 0, iteration: 0
+Gas: Granted Time Iterative: 0, Iteration Status: 0
+Gas: Time Step 0 Iteration Completed!
+
+Gas-Sent: Time 1 	 iter 0 	 Pthg = 200.0000 [MW]
+Gas-Sent: Time 1 	 iter 0 	 Reserve = 1000.0000 [MW]
 Gas: Requested Time Iterative: 1, iteration: 0
-Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric: Granted Time Iterative: 0,  Iteration Status: 3
 Electric-Recieved: Time 1 	 iter 0 	 Pthg = 200.0000 [MW]
 Electric-Recieved: Time 1 	 iter 0 	 Reserve = 1000.0000 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 1 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
 Electric: Requested Time Iterative: 1, iteration: 1
-Gas: Granted Time Iterative: 1, Iteration Status: 3
+Electric: Granted Time Iterative: 0,  Iteration Status: 3
+Electric-Recieved: Time 1 	 iter 1 	 Pthg = 200.0000 [MW]
+Electric-Recieved: Time 1 	 iter 1 	 Reserve = 1000.0000 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 1 	 iter 2 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
+Electric: Requested Time Iterative: 1, iteration: 2
+Gas: Granted Time Iterative: 0, Iteration Status: 3
 Gas-Received: Time 1 	 iter 0 	 Pthe = 416.6667 [MW]
 Gas-Event: Time 1 	 iter 0 	 Pthe = 416.6667 [MW]
 Gas - HasVioltation?: True
@@ -147,94 +100,86 @@ Gas - HasVioltation?: True
 Gas-Sent: Time 1 	 iter 1 	 Pthg = 416.6667 [MW]
 Gas-Sent: Time 1 	 iter 1 	 Reserve = 583.3333 [MW]
 Gas: Requested Time Iterative: 1, iteration: 1
-Electric: Granted Time Iterative: 1,  Iteration Status: 3
-Electric-Recieved: Time 1 	 iter 1 	 Pthg = 416.6667 [MW]
-Gas: Granted Time Iterative: 1, Iteration Status: 3
-Electric-Recieved: Time 1 	 iter 1 	 Reserve = 583.3333 [MW]
-Electric - HasVioltation?: True
+Gas: Granted Time Iterative: 0, Iteration Status: 3
 Gas-Received: Time 1 	 iter 1 	 Pthe = 416.6667 [MW]
 Gas - HasVioltation?: True
 
-Electric-Sent: Time 1 	 iter 2 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
-
 Gas-Sent: Time 1 	 iter 2 	 Pthg = 416.6667 [MW]
-Electric: Requested Time Iterative: 1, iteration: 2
 Gas-Sent: Time 1 	 iter 2 	 Reserve = 583.3333 [MW]
 Gas: Requested Time Iterative: 1, iteration: 2
-Gas: Granted Time Iterative: 1, Iteration Status: 3
-Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric: Granted Time Iterative: 0,  Iteration Status: 3
 Electric-Recieved: Time 1 	 iter 2 	 Pthg = 416.6667 [MW]
 Electric-Recieved: Time 1 	 iter 2 	 Reserve = 583.3333 [MW]
 Electric - HasVioltation?: True
-Gas-Received: Time 1 	 iter 2 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: True
 
 Electric-Sent: Time 1 	 iter 3 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
 Electric: Requested Time Iterative: 1, iteration: 3
-
-Gas-Sent: Time 1 	 iter 3 	 Pthg = 416.6667 [MW]
-Gas-Sent: Time 1 	 iter 3 	 Reserve = 583.3333 [MW]
-Gas: Requested Time Iterative: 1, iteration: 3
-Electric: Granted Time Iterative: 1,  Iteration Status: 3
-Gas: Granted Time Iterative: 1, Iteration Status: 3
+Electric: Granted Time Iterative: 0,  Iteration Status: 3
 Electric-Recieved: Time 1 	 iter 3 	 Pthg = 416.6667 [MW]
-Gas-Received: Time 1 	 iter 3 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: False
-Gas: Time Step 1 Converged!
-Gas: Requested Time Iterative: 1, iteration: 3
 Electric-Recieved: Time 1 	 iter 3 	 Reserve = 583.3333 [MW]
 Electric - HasVioltation?: False
 Electric: Time Step 1 Converged!
 Electric: Requested Time Iterative: 1, iteration: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 0
-Electric: Granted Time Iterative: 2,  Iteration Status: 0
-Gas: Time Step 1 Iteration Completed!
+Gas: Granted Time Iterative: 0, Iteration Status: 3
+Gas-Received: Time 1 	 iter 2 	 Pthe = 416.6667 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 1 	 iter 3 	 Pthg = 416.6667 [MW]
+Gas-Sent: Time 1 	 iter 3 	 Reserve = 583.3333 [MW]
+Gas: Requested Time Iterative: 1, iteration: 3
+Electric: Granted Time Iterative: 0,  Iteration Status: 3
+Electric-Recieved: Time 1 	 iter 3 	 Pthg = 416.6667 [MW]
+Electric-Recieved: Time 1 	 iter 3 	 Reserve = 583.3333 [MW]
+Electric - HasVioltation?: False
+Electric: Time Step 1 Converged!
+Electric: Requested Time Iterative: 1, iteration: 3
+Gas: Granted Time Iterative: 0, Iteration Status: 3
+Gas-Received: Time 1 	 iter 3 	 Pthe = 416.6667 [MW]
+Gas - HasVioltation?: False
+Gas: Time Step 1 Converged!
+Gas: Requested Time Iterative: 1, iteration: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 0
 Electric: Time Step 1 Iteration Completed!
 
 Electric-Sent: Time 2 	 iter 0 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 0
+Gas: Granted Time Iterative: 1, Iteration Status: 0
+Gas: Time Step 1 Iteration Completed!
 
 Gas-Sent: Time 2 	 iter 0 	 Pthg = 200.0000 [MW]
 Gas-Sent: Time 2 	 iter 0 	 Reserve = 1000.0000 [MW]
 Gas: Requested Time Iterative: 2, iteration: 0
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 0 	 Pthg = 200.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 0 	 Pthe = 83.3333 [MW]
-Electric-Recieved: Time 2 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 2 	 iter 1 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 1
 Gas-Event: Time 2 	 iter 0 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 1 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 1 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 1
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 2 	 iter 1 	 Pthe = 83.3333 [MW]
-Gas-Event: Time 2 	 iter 1 	 Pthe = 100.0000 [MW]
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 0 	 Pthg = 200.0000 [MW]
+Electric-Recieved: Time 2 	 iter 0 	 Reserve = 1000.0000 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 1 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 1
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 1 	 Pthg = 100.0000 [MW]
-Gas - HasVioltation?: True
 Electric-Recieved: Time 2 	 iter 1 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
-Gas-Sent: Time 2 	 iter 2 	 Pthg = 100.0000 [MW]
-
 Electric-Sent: Time 2 	 iter 2 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 2
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 1 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 1 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 2 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 2 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 2
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 2 	 Pthg = 100.0000 [MW]
-Electric-Recieved: Time 2 	 iter 2 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 2 	 iter 3 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 2 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 2 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
@@ -242,69 +187,78 @@ Gas - HasVioltation?: True
 Gas-Sent: Time 2 	 iter 3 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 3 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas-Received: Time 2 	 iter 3 	 Pthe = 83.3333 [MW]
-Gas-Event: Time 2 	 iter 3 	 Pthe = 100.0000 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 2 	 iter 3 	 Pthg = 100.0000 [MW]
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 2 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 2 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
 
-Gas-Sent: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
+Electric-Sent: Time 2 	 iter 3 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 3 	 Pthg = 100.0000 [MW]
 Electric-Recieved: Time 2 	 iter 3 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
-Gas-Sent: Time 2 	 iter 4 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 4
 
 Electric-Sent: Time 2 	 iter 4 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 4
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 3 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 3 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 4 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 4
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 4 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 4 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 5 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 5 	 Reserve = 916.6667 [MW]
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
 Gas: Requested Time Iterative: 2, iteration: 5
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 4 	 Pthg = 100.0000 [MW]
 Electric-Recieved: Time 2 	 iter 4 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 5 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 5
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 2 	 iter 5 	 Pthe = 83.3333 [MW]
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas-Event: Time 2 	 iter 5 	 Pthe = 100.0000 [MW]
-Gas - HasVioltation?: True
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 5 	 Pthg = 100.0000 [MW]
-
-Gas-Sent: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
-Gas-Sent: Time 2 	 iter 6 	 Reserve = 916.6667 [MW]
 Electric-Recieved: Time 2 	 iter 5 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 6
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 6 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 6
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 6 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 5 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 5 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 6 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 6
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 6 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 6 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
-Electric-Sent: Time 2 	 iter 7 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 7
-
 Gas-Sent: Time 2 	 iter 7 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 7 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 7
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 6 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 6 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 7 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 7
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 7 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 7 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 7 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 7 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
@@ -312,149 +266,152 @@ Gas - HasVioltation?: True
 Gas-Sent: Time 2 	 iter 8 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 8 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 8
-Electric-Recieved: Time 2 	 iter 7 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 8 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 8
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 2 	 iter 8 	 Pthe = 83.3333 [MW]
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas-Event: Time 2 	 iter 8 	 Pthe = 100.0000 [MW]
-Gas - HasVioltation?: True
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 8 	 Pthg = 100.0000 [MW]
-
-Gas-Sent: Time 2 	 iter 9 	 Pthg = 100.0000 [MW]
 Electric-Recieved: Time 2 	 iter 8 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
-Gas-Sent: Time 2 	 iter 9 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 9
 
 Electric-Sent: Time 2 	 iter 9 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 9
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 8 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 8 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 9 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 9 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 9
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 9 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 9 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 10 	 Pthg = 100.0000 [MW]
-Gas-Sent: Time 2 	 iter 10 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 10
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 9 	 Pthg = 100.0000 [MW]
 Electric-Recieved: Time 2 	 iter 9 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 10 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 10
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Gas-Sent: Time 2 	 iter 10 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 10
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 10 	 Pthe = 83.3333 [MW]
-Electric-Recieved: Time 2 	 iter 10 	 Pthg = 100.0000 [MW]
-Electric-Recieved: Time 2 	 iter 10 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 2 	 iter 11 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 11
 Gas-Event: Time 2 	 iter 10 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 11 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 11 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 11
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 10 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 10 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 11 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 11
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 11 	 Pthg = 100.0000 [MW]
-Gas: Granted Time Iterative: 2, Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 11 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
-Gas-Received: Time 2 	 iter 11 	 Pthe = 83.3333 [MW]
-Gas-Event: Time 2 	 iter 11 	 Pthe = 100.0000 [MW]
 
 Electric-Sent: Time 2 	 iter 12 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 12
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 11 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 11 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 12 	 Pthg = 100.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 12
 Gas-Sent: Time 2 	 iter 12 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 12
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 12 	 Pthg = 100.0000 [MW]
-Electric-Recieved: Time 2 	 iter 12 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 12 	 Pthe = 83.3333 [MW]
-
-Electric-Sent: Time 2 	 iter 13 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Gas-Event: Time 2 	 iter 12 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
-Electric: Requested Time Iterative: 2, iteration: 13
 
 Gas-Sent: Time 2 	 iter 13 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 13 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 13
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 12 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 12 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 13 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 13
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 13 	 Pthg = 100.0000 [MW]
-Gas-Received: Time 2 	 iter 13 	 Pthe = 83.3333 [MW]
-Gas-Event: Time 2 	 iter 13 	 Pthe = 100.0000 [MW]
-Gas - HasVioltation?: True
 Electric-Recieved: Time 2 	 iter 13 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
-Gas-Sent: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
-
 Electric-Sent: Time 2 	 iter 14 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 14
-Gas-Sent: Time 2 	 iter 14 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 14
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
-Gas-Received: Time 2 	 iter 14 	 Pthe = 83.3333 [MW]
-Electric-Recieved: Time 2 	 iter 14 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
-Gas-Event: Time 2 	 iter 14 	 Pthe = 100.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 13 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 13 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
-Electric-Sent: Time 2 	 iter 15 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 15
+Gas-Sent: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 14 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 14
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 14 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 14 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 15 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 15 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 15
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 14 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 14 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 15 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 15
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 15 	 Pthg = 100.0000 [MW]
-Gas: Granted Time Iterative: 2, Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 15 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
-Gas-Received: Time 2 	 iter 15 	 Pthe = 83.3333 [MW]
 
 Electric-Sent: Time 2 	 iter 16 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Gas-Event: Time 2 	 iter 15 	 Pthe = 100.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 16
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 15 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 15 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 16 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 16 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 16
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 16 	 Pthg = 100.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 16 	 Pthe = 83.3333 [MW]
-Electric-Recieved: Time 2 	 iter 16 	 Reserve = 916.6667 [MW]
 Gas-Event: Time 2 	 iter 16 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 17 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 17 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 17
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 16 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 16 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 17 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-
-Gas-Sent: Time 2 	 iter 17 	 Pthg = 100.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 17
-Gas-Sent: Time 2 	 iter 17 	 Reserve = 916.6667 [MW]
-Gas: Requested Time Iterative: 2, iteration: 17
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 17 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 17 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 18 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Electric: Requested Time Iterative: 2, iteration: 18
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 17 	 Pthe = 83.3333 [MW]
 Gas-Event: Time 2 	 iter 17 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
@@ -462,691 +419,130 @@ Gas - HasVioltation?: True
 Gas-Sent: Time 2 	 iter 18 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 18 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 18
-Electric-Recieved: Time 2 	 iter 17 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 2 	 iter 18 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
-Electric: Requested Time Iterative: 2, iteration: 18
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 18 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 18 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
 Electric-Recieved: Time 2 	 iter 18 	 Pthg = 100.0000 [MW]
 Electric-Recieved: Time 2 	 iter 18 	 Reserve = 916.6667 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 2 	 iter 19 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Electric: Requested Time Iterative: 2, iteration: 19
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 2 	 iter 18 	 Pthe = 83.3333 [MW]
-Gas-Event: Time 2 	 iter 18 	 Pthe = 100.0000 [MW]
-Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 19 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 19 	 Reserve = 916.6667 [MW]
 Gas: Requested Time Iterative: 2, iteration: 19
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric-Recieved: Time 2 	 iter 19 	 Pthg = 100.0000 [MW]
-Electric-Recieved: Time 2 	 iter 19 	 Reserve = 916.6667 [MW]
-Electric - HasVioltation?: True
+Gas: Granted Time Iterative: 1, Iteration Status: 3
 Gas-Received: Time 2 	 iter 19 	 Pthe = 83.3333 [MW]
-
-Electric-Sent: Time 2 	 iter 20 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 Gas-Event: Time 2 	 iter 19 	 Pthe = 100.0000 [MW]
 Gas - HasVioltation?: True
 
 Gas-Sent: Time 2 	 iter 20 	 Pthg = 100.0000 [MW]
 Gas-Sent: Time 2 	 iter 20 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 20
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 19 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 19 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
 
-Gas-Sent: Time 3 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 3 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 3, iteration: 0
+Electric-Sent: Time 2 	 iter 20 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 20 	 Pthe = 83.3333 [MW]
+Gas-Event: Time 2 	 iter 20 	 Pthe = 100.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 21 	 Pthg = 100.0000 [MW]
+Gas-Sent: Time 2 	 iter 21 	 Reserve = 916.6667 [MW]
+Gas: Requested Time Iterative: 2, iteration: 21
+Electric: Requested Time Iterative: 2, iteration: 20
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 2 	 iter 20 	 Pthg = 100.0000 [MW]
+Electric-Recieved: Time 2 	 iter 20 	 Reserve = 916.6667 [MW]
+Electric - HasVioltation?: True
+
+Electric-Sent: Time 2 	 iter 21 	 Pthe = 83.3333 [MW] 	 P = 20.0000 [MW]
 
 Electric-Sent: Time 3 	 iter 0 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
 Electric: Requested Time Iterative: 3, iteration: 0
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas-Received: Time 3 	 iter 0 	 Pthe = 1000.0000 [MW]
-Electric-Recieved: Time 3 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric-Recieved: Time 3 	 iter 0 	 Reserve = 1000.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 21 	 Pthe = 1000.0000 [MW]
+Gas-Event: Time 2 	 iter 21 	 Pthe = 1000.0000 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 2 	 iter 22 	 Pthg = 1000.0000 [MW]
+Gas-Sent: Time 2 	 iter 22 	 Reserve = 0.0000 [MW]
+Gas: Requested Time Iterative: 2, iteration: 22
+Electric: Granted Time Iterative: 1,  Iteration Status: 3
+Electric-Recieved: Time 3 	 iter 0 	 Pthg = 1000.0000 [MW]
+Electric-Recieved: Time 3 	 iter 0 	 Reserve = 0.0000 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 3 	 iter 1 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
 Electric: Requested Time Iterative: 3, iteration: 1
-Gas-Event: Time 3 	 iter 0 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 3 	 iter 1 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 3 	 iter 1 	 Reserve = 0.0000 [MW]
-Gas: Requested Time Iterative: 3, iteration: 1
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 3 	 iter 1 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 3 	 iter 2 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 3 	 iter 2 	 Reserve = 0.0000 [MW]
-Gas: Requested Time Iterative: 3, iteration: 2
-Electric-Recieved: Time 3 	 iter 1 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 3 	 iter 1 	 Reserve = 0.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 3 	 iter 2 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
-Electric: Requested Time Iterative: 3, iteration: 2
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 3 	 iter 2 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 3 	 iter 2 	 Reserve = 0.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 3 	 iter 3 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
-Electric: Requested Time Iterative: 3, iteration: 3
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 3 	 iter 2 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 3 	 iter 3 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 3 	 iter 3 	 Reserve = 0.0000 [MW]
-Gas: Requested Time Iterative: 3, iteration: 3
-Electric: Granted Time Iterative: 2,  Iteration Status: 3
-Electric-Recieved: Time 3 	 iter 3 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 3 	 iter 3 	 Reserve = 0.0000 [MW]
-Electric - HasVioltation?: False
-Gas: Granted Time Iterative: 2, Iteration Status: 3
-Gas-Received: Time 3 	 iter 3 	 Pthe = 1000.0000 [MW]
+Gas: Granted Time Iterative: 1, Iteration Status: 3
+Gas-Received: Time 2 	 iter 22 	 Pthe = 1000.0000 [MW]
 Gas - HasVioltation?: False
-Gas: Time Step 3 Converged!
-Gas: Requested Time Iterative: 3, iteration: 3
-Electric: Time Step 3 Converged!
-Electric: Requested Time Iterative: 3, iteration: 3
-Gas: Granted Time Iterative: 4, Iteration Status: 0
-Electric: Granted Time Iterative: 4,  Iteration Status: 0
+Gas: Time Step 2 Converged!
+Gas: Requested Time Iterative: 2, iteration: 22
+Gas: Granted Time Iterative: 2, Iteration Status: 0
+Gas: Time Step 2 Iteration Completed!
+
+Gas-Sent: Time 3 	 iter 0 	 Pthg = 200.0000 [MW]
+Gas-Sent: Time 3 	 iter 0 	 Reserve = 1000.0000 [MW]
+Gas: Requested Time Iterative: 3, iteration: 0
+Electric: Granted Time Iterative: 2,  Iteration Status: 0
 Electric: Time Step 3 Iteration Completed!
 
 Electric-Sent: Time 4 	 iter 0 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
 Electric: Requested Time Iterative: 4, iteration: 0
-Gas: Time Step 3 Iteration Completed!
+Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas-Received: Time 3 	 iter 0 	 Pthe = 166.6667 [MW]
+Gas-Event: Time 3 	 iter 0 	 Pthe = 166.6667 [MW]
+Gas - HasVioltation?: True
 
-Gas-Sent: Time 4 	 iter 0 	 Pthg = 30.0000 [MW]
-Gas-Sent: Time 4 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 4, iteration: 0
-Electric: Granted Time Iterative: 4,  Iteration Status: 3
-Gas: Granted Time Iterative: 4, Iteration Status: 3
-Electric-Recieved: Time 4 	 iter 0 	 Pthg = 30.0000 [MW]
-Gas-Received: Time 4 	 iter 0 	 Pthe = 166.6667 [MW]
-Electric-Recieved: Time 4 	 iter 0 	 Reserve = 1000.0000 [MW]
+Gas-Sent: Time 3 	 iter 1 	 Pthg = 166.6667 [MW]
+Gas-Sent: Time 3 	 iter 1 	 Reserve = 833.3333 [MW]
+Gas: Requested Time Iterative: 3, iteration: 1
+Electric: Granted Time Iterative: 2,  Iteration Status: 3
+Electric-Recieved: Time 4 	 iter 0 	 Pthg = 166.6667 [MW]
+Electric-Recieved: Time 4 	 iter 0 	 Reserve = 833.3333 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 4 	 iter 1 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
 Electric: Requested Time Iterative: 4, iteration: 1
-Gas-Event: Time 4 	 iter 0 	 Pthe = 166.6667 [MW]
+Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas-Received: Time 3 	 iter 1 	 Pthe = 166.6667 [MW]
 Gas - HasVioltation?: True
 
-Gas-Sent: Time 4 	 iter 1 	 Pthg = 166.6667 [MW]
-Gas-Sent: Time 4 	 iter 1 	 Reserve = 833.3333 [MW]
-Gas: Requested Time Iterative: 4, iteration: 1
-Gas: Granted Time Iterative: 4, Iteration Status: 3
-Electric: Granted Time Iterative: 4,  Iteration Status: 3
-Gas-Received: Time 4 	 iter 1 	 Pthe = 166.6667 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 4 	 iter 2 	 Pthg = 166.6667 [MW]
-Gas-Sent: Time 4 	 iter 2 	 Reserve = 833.3333 [MW]
-Gas: Requested Time Iterative: 4, iteration: 2
+Gas-Sent: Time 3 	 iter 2 	 Pthg = 166.6667 [MW]
+Gas-Sent: Time 3 	 iter 2 	 Reserve = 833.3333 [MW]
+Gas: Requested Time Iterative: 3, iteration: 2
+Electric: Granted Time Iterative: 2,  Iteration Status: 3
 Electric-Recieved: Time 4 	 iter 1 	 Pthg = 166.6667 [MW]
 Electric-Recieved: Time 4 	 iter 1 	 Reserve = 833.3333 [MW]
 Electric - HasVioltation?: True
 
 Electric-Sent: Time 4 	 iter 2 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
 Electric: Requested Time Iterative: 4, iteration: 2
-Electric: Granted Time Iterative: 4,  Iteration Status: 3
+Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas-Received: Time 3 	 iter 2 	 Pthe = 166.6667 [MW]
+Gas - HasVioltation?: True
+
+Gas-Sent: Time 3 	 iter 3 	 Pthg = 166.6667 [MW]
+Gas-Sent: Time 3 	 iter 3 	 Reserve = 833.3333 [MW]
+Gas: Requested Time Iterative: 3, iteration: 3
+Electric: Granted Time Iterative: 2,  Iteration Status: 3
 Electric-Recieved: Time 4 	 iter 2 	 Pthg = 166.6667 [MW]
-Gas: Granted Time Iterative: 4, Iteration Status: 3
 Electric-Recieved: Time 4 	 iter 2 	 Reserve = 833.3333 [MW]
 Electric - HasVioltation?: True
-Gas-Received: Time 4 	 iter 2 	 Pthe = 166.6667 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 4 	 iter 3 	 Pthg = 166.6667 [MW]
 
 Electric-Sent: Time 4 	 iter 3 	 Pthe = 166.6667 [MW] 	 P = 30.0000 [MW]
-Gas-Sent: Time 4 	 iter 3 	 Reserve = 833.3333 [MW]
-Gas: Requested Time Iterative: 4, iteration: 3
 Electric: Requested Time Iterative: 4, iteration: 3
-Electric: Granted Time Iterative: 4,  Iteration Status: 3
-Electric-Recieved: Time 4 	 iter 3 	 Pthg = 166.6667 [MW]
-Electric-Recieved: Time 4 	 iter 3 	 Reserve = 833.3333 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 4 Converged!
-Electric: Requested Time Iterative: 4, iteration: 3
-Gas: Granted Time Iterative: 4, Iteration Status: 3
-Gas-Received: Time 4 	 iter 3 	 Pthe = 166.6667 [MW]
+Gas: Granted Time Iterative: 2, Iteration Status: 3
+Gas-Received: Time 3 	 iter 3 	 Pthe = 166.6667 [MW]
 Gas - HasVioltation?: False
-Gas: Time Step 4 Converged!
-Gas: Requested Time Iterative: 4, iteration: 3
-Electric: Granted Time Iterative: 5,  Iteration Status: 0
-Electric: Time Step 4 Iteration Completed!
-
-Electric-Sent: Time 5 	 iter 0 	 Pthe = 1527.7778 [MW] 	 P = 100.0000 [MW]
-Electric: Requested Time Iterative: 5, iteration: 0
-Gas: Granted Time Iterative: 5, Iteration Status: 0
-Gas: Time Step 4 Iteration Completed!
-
-Gas-Sent: Time 5 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 5 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 5, iteration: 0
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric-Recieved: Time 5 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 5 	 iter 1 	 Pthe = 1527.7778 [MW] 	 P = 100.0000 [MW]
-Gas-Received: Time 5 	 iter 0 	 Pthe = 1527.7778 [MW]
-Gas-Event: Time 5 	 iter 0 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-Electric: Requested Time Iterative: 5, iteration: 1
-
-Gas-Sent: Time 5 	 iter 1 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 1 	 Reserve = -527.7778 [MW]
-Gas: Requested Time Iterative: 5, iteration: 1
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 1 	 Pthg = 1000.0000 [MW]
-Gas-Received: Time 5 	 iter 1 	 Pthe = 1527.7778 [MW]
-Electric-Recieved: Time 5 	 iter 1 	 Reserve = -527.7778 [MW]
-Gas-Event: Time 5 	 iter 1 	 Pthe = 1000.0000 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 5 	 iter 1 	 P_old = 100.00 [MW] 	 P_new= 95.00 [MW]
-
-Electric-Sent: Time 5 	 iter 2 	 Pthe = 1385.4167 [MW] 	 P = 95.0000 [MW]
-Electric: Requested Time Iterative: 5, iteration: 2
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 5 	 iter 2 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 2 	 Reserve = -527.7778 [MW]
-Gas: Requested Time Iterative: 5, iteration: 2
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Gas-Received: Time 5 	 iter 2 	 Pthe = 1385.4167 [MW]
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Gas-Event: Time 5 	 iter 2 	 Pthe = 1000.0000 [MW]
-Electric-Recieved: Time 5 	 iter 2 	 Pthg = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 5 	 iter 3 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 3 	 Reserve = -385.4167 [MW]
-Gas: Requested Time Iterative: 5, iteration: 3
-Electric-Recieved: Time 5 	 iter 2 	 Reserve = -527.7778 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 5 	 iter 2 	 P_old = 95.00 [MW] 	 P_new= 90.00 [MW]
-
-Electric-Sent: Time 5 	 iter 3 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
-Electric: Requested Time Iterative: 5, iteration: 3
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Gas-Received: Time 5 	 iter 3 	 Pthe = 1250.0000 [MW]
-Gas-Event: Time 5 	 iter 3 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 5 	 iter 4 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 4 	 Reserve = -250.0000 [MW]
-Gas: Requested Time Iterative: 5, iteration: 4
-Electric-Recieved: Time 5 	 iter 3 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 5 	 iter 3 	 Reserve = -385.4167 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 5 	 iter 3 	 P_old = 90.00 [MW] 	 P_new= 85.00 [MW]
-
-Electric-Sent: Time 5 	 iter 4 	 Pthe = 1121.5278 [MW] 	 P = 85.0000 [MW]
-Electric: Requested Time Iterative: 5, iteration: 4
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 4 	 Pthg = 1000.0000 [MW]
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 4 	 Reserve = -250.0000 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 5 	 iter 4 	 P_old = 85.00 [MW] 	 P_new= 80.00 [MW]
-
-Electric-Sent: Time 5 	 iter 5 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
-Electric: Requested Time Iterative: 5, iteration: 5
-Gas-Received: Time 5 	 iter 4 	 Pthe = 1121.5278 [MW]
-Gas-Event: Time 5 	 iter 4 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 5 	 iter 5 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 5 	 Reserve = -121.5278 [MW]
-Gas: Requested Time Iterative: 5, iteration: 5
-Gas: Granted Time Iterative: 5, Iteration Status: 3
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 5 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 5 	 iter 5 	 Reserve = -121.5278 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 5 Converged!
-Electric: Requested Time Iterative: 5, iteration: 5
-Gas-Received: Time 5 	 iter 5 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 5 	 iter 6 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 5 	 iter 6 	 Reserve = 0.0000 [MW]
-Gas: Requested Time Iterative: 5, iteration: 6
-Electric: Granted Time Iterative: 5,  Iteration Status: 3
-Electric-Recieved: Time 5 	 iter 5 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 5 	 iter 5 	 Reserve = 0.0000 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 5 Converged!
-Electric: Requested Time Iterative: 5, iteration: 5
-Electric: Granted Time Iterative: 6,  Iteration Status: 0
-Gas: Granted Time Iterative: 6, Iteration Status: 0
-Gas: Time Step 5 Iteration Completed!
-Electric: Time Step 5 Iteration Completed!
-
-Gas-Sent: Time 6 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 6 	 iter 0 	 Reserve = 1000.0000 [MW]
-
-Electric-Sent: Time 6 	 iter 0 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
-Gas: Requested Time Iterative: 6, iteration: 0
-Electric: Requested Time Iterative: 6, iteration: 0
-Gas: Granted Time Iterative: 6, Iteration Status: 3
-Electric: Granted Time Iterative: 6,  Iteration Status: 3
-Gas-Received: Time 6 	 iter 0 	 Pthe = 1250.0000 [MW]
-Gas-Event: Time 6 	 iter 0 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 6 	 iter 1 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 6 	 iter 1 	 Reserve = -250.0000 [MW]
-Gas: Requested Time Iterative: 6, iteration: 1
-Electric-Recieved: Time 6 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric-Recieved: Time 6 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 6 	 iter 1 	 Pthe = 1250.0000 [MW] 	 P = 90.0000 [MW]
-Electric: Requested Time Iterative: 6, iteration: 1
-Electric: Granted Time Iterative: 6,  Iteration Status: 3
-Gas: Granted Time Iterative: 6, Iteration Status: 3
-Electric-Recieved: Time 6 	 iter 1 	 Pthg = 1000.0000 [MW]
-Gas-Received: Time 6 	 iter 1 	 Pthe = 1250.0000 [MW]
-Gas-Event: Time 6 	 iter 1 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 6 	 iter 2 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 6 	 iter 2 	 Reserve = -250.0000 [MW]
-Gas: Requested Time Iterative: 6, iteration: 2
-Electric-Recieved: Time 6 	 iter 1 	 Reserve = -250.0000 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 6 	 iter 1 	 P_old = 90.00 [MW] 	 P_new= 85.00 [MW]
-
-Electric-Sent: Time 6 	 iter 2 	 Pthe = 1121.5278 [MW] 	 P = 85.0000 [MW]
-Electric: Requested Time Iterative: 6, iteration: 2
-Electric: Granted Time Iterative: 6,  Iteration Status: 3
-Electric-Recieved: Time 6 	 iter 2 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 6 	 iter 2 	 Reserve = -250.0000 [MW]
-Electric - HasVioltation?: True
-Electric-Event: Time 6 	 iter 2 	 P_old = 85.00 [MW] 	 P_new= 80.00 [MW]
-
-Electric-Sent: Time 6 	 iter 3 	 Pthe = 1000.0000 [MW] 	 P = 80.0000 [MW]
-Electric: Requested Time Iterative: 6, iteration: 3
-Gas: Granted Time Iterative: 6, Iteration Status: 3
-Gas-Received: Time 6 	 iter 2 	 Pthe = 1121.5278 [MW]
-Gas-Event: Time 6 	 iter 2 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 6 	 iter 3 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 6 	 iter 3 	 Reserve = -121.5278 [MW]
-Gas: Requested Time Iterative: 6, iteration: 3
-Electric: Granted Time Iterative: 6,  Iteration Status: 3
-Electric-Recieved: Time 6 	 iter 3 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 6 	 iter 3 	 Reserve = -121.5278 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 6 Converged!
-Electric: Requested Time Iterative: 6, iteration: 3
-Gas: Granted Time Iterative: 6, Iteration Status: 3
-Gas-Received: Time 6 	 iter 3 	 Pthe = 1000.0000 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 6 	 iter 4 	 Pthg = 1000.0000 [MW]
-Gas-Sent: Time 6 	 iter 4 	 Reserve = 0.0000 [MW]
-Gas: Requested Time Iterative: 6, iteration: 4
-Electric: Granted Time Iterative: 6,  Iteration Status: 3
-Electric-Recieved: Time 6 	 iter 3 	 Pthg = 1000.0000 [MW]
-Electric-Recieved: Time 6 	 iter 3 	 Reserve = 0.0000 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 6 Converged!
-Electric: Requested Time Iterative: 6, iteration: 3
-Gas: Granted Time Iterative: 7, Iteration Status: 0
-Electric: Granted Time Iterative: 7,  Iteration Status: 0
-Electric: Time Step 6 Iteration Completed!
-Gas: Time Step 6 Iteration Completed!
-
-Gas-Sent: Time 7 	 iter 0 	 Pthg = 200.0000 [MW]
-
-Electric-Sent: Time 7 	 iter 0 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
-Electric: Requested Time Iterative: 7, iteration: 0
-Gas-Sent: Time 7 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 7, iteration: 0
-Electric: Granted Time Iterative: 7,  Iteration Status: 3
-Gas: Granted Time Iterative: 7, Iteration Status: 3
-Electric-Recieved: Time 7 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Received: Time 7 	 iter 0 	 Pthe = 677.0833 [MW]
-Electric-Recieved: Time 7 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-Gas-Event: Time 7 	 iter 0 	 Pthe = 677.0833 [MW]
-Gas - HasVioltation?: True
-
-Electric-Sent: Time 7 	 iter 1 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
-Electric: Requested Time Iterative: 7, iteration: 1
-
-Gas-Sent: Time 7 	 iter 1 	 Pthg = 677.0833 [MW]
-Gas-Sent: Time 7 	 iter 1 	 Reserve = 322.9167 [MW]
-Gas: Requested Time Iterative: 7, iteration: 1
-Electric: Granted Time Iterative: 7,  Iteration Status: 3
-Gas: Granted Time Iterative: 7, Iteration Status: 3
-Electric-Recieved: Time 7 	 iter 1 	 Pthg = 677.0833 [MW]
-Gas-Received: Time 7 	 iter 1 	 Pthe = 677.0833 [MW]
-Electric-Recieved: Time 7 	 iter 1 	 Reserve = 322.9167 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 7 	 iter 2 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
-Electric: Requested Time Iterative: 7, iteration: 2
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 7 	 iter 2 	 Pthg = 677.0833 [MW]
-Gas-Sent: Time 7 	 iter 2 	 Reserve = 322.9167 [MW]
-Gas: Requested Time Iterative: 7, iteration: 2
-Gas: Granted Time Iterative: 7, Iteration Status: 3
-Electric: Granted Time Iterative: 7,  Iteration Status: 3
-Electric-Recieved: Time 7 	 iter 2 	 Pthg = 677.0833 [MW]
-Electric-Recieved: Time 7 	 iter 2 	 Reserve = 322.9167 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 7 	 iter 3 	 Pthe = 677.0833 [MW] 	 P = 65.0000 [MW]
-Electric: Requested Time Iterative: 7, iteration: 3
-Gas-Received: Time 7 	 iter 2 	 Pthe = 677.0833 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 7 	 iter 3 	 Pthg = 677.0833 [MW]
-Gas-Sent: Time 7 	 iter 3 	 Reserve = 322.9167 [MW]
-Gas: Requested Time Iterative: 7, iteration: 3
-Electric: Granted Time Iterative: 7,  Iteration Status: 3
-Gas: Granted Time Iterative: 7, Iteration Status: 3
-Gas-Received: Time 7 	 iter 3 	 Pthe = 677.0833 [MW]
-Gas - HasVioltation?: False
-Gas: Time Step 7 Converged!
-Gas: Requested Time Iterative: 7, iteration: 3
-Electric-Recieved: Time 7 	 iter 3 	 Pthg = 677.0833 [MW]
-Electric-Recieved: Time 7 	 iter 3 	 Reserve = 322.9167 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 7 Converged!
-Electric: Requested Time Iterative: 7, iteration: 3
-Gas: Granted Time Iterative: 8, Iteration Status: 0
-Electric: Granted Time Iterative: 8,  Iteration Status: 0
-Electric: Time Step 7 Iteration Completed!
-Gas: Time Step 7 Iteration Completed!
-
-Gas-Sent: Time 8 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 8 	 iter 0 	 Reserve = 1000.0000 [MW]
-
-Electric-Sent: Time 8 	 iter 0 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
-Gas: Requested Time Iterative: 8, iteration: 0
-Electric: Requested Time Iterative: 8, iteration: 0
-Gas: Granted Time Iterative: 8, Iteration Status: 3
-Electric: Granted Time Iterative: 8,  Iteration Status: 3
-Gas-Received: Time 8 	 iter 0 	 Pthe = 885.4167 [MW]
-Electric-Recieved: Time 8 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Event: Time 8 	 iter 0 	 Pthe = 885.4167 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 8 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Gas-Sent: Time 8 	 iter 1 	 Pthg = 885.4167 [MW]
-
-Electric-Sent: Time 8 	 iter 1 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
-Gas-Sent: Time 8 	 iter 1 	 Reserve = 114.5833 [MW]
-Gas: Requested Time Iterative: 8, iteration: 1
-Electric: Requested Time Iterative: 8, iteration: 1
-Gas: Granted Time Iterative: 8, Iteration Status: 3
-Gas-Received: Time 8 	 iter 1 	 Pthe = 885.4167 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 8 	 iter 2 	 Pthg = 885.4167 [MW]
-Gas-Sent: Time 8 	 iter 2 	 Reserve = 114.5833 [MW]
-Gas: Requested Time Iterative: 8, iteration: 2
-Electric: Granted Time Iterative: 8,  Iteration Status: 3
-Electric-Recieved: Time 8 	 iter 1 	 Pthg = 885.4167 [MW]
-Electric-Recieved: Time 8 	 iter 1 	 Reserve = 114.5833 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 8 	 iter 2 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
-Electric: Requested Time Iterative: 8, iteration: 2
-Electric: Granted Time Iterative: 8,  Iteration Status: 3
-Gas: Granted Time Iterative: 8, Iteration Status: 3
-Electric-Recieved: Time 8 	 iter 2 	 Pthg = 885.4167 [MW]
-Gas-Received: Time 8 	 iter 2 	 Pthe = 885.4167 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 8 	 iter 2 	 Reserve = 114.5833 [MW]
-Electric - HasVioltation?: True
-
-Gas-Sent: Time 8 	 iter 3 	 Pthg = 885.4167 [MW]
-
-Electric-Sent: Time 8 	 iter 3 	 Pthe = 885.4167 [MW] 	 P = 75.0000 [MW]
-Electric: Requested Time Iterative: 8, iteration: 3
-Gas-Sent: Time 8 	 iter 3 	 Reserve = 114.5833 [MW]
-Gas: Requested Time Iterative: 8, iteration: 3
-Electric: Granted Time Iterative: 8,  Iteration Status: 3
-Gas: Granted Time Iterative: 8, Iteration Status: 3
-Gas-Received: Time 8 	 iter 3 	 Pthe = 885.4167 [MW]
-Gas - HasVioltation?: False
-Electric-Recieved: Time 8 	 iter 3 	 Pthg = 885.4167 [MW]
-Electric-Recieved: Time 8 	 iter 3 	 Reserve = 114.5833 [MW]
-Electric - HasVioltation?: False
-Gas: Time Step 8 Converged!
-Gas: Requested Time Iterative: 8, iteration: 3
-Electric: Time Step 8 Converged!
-Electric: Requested Time Iterative: 8, iteration: 3
-Gas: Granted Time Iterative: 9, Iteration Status: 0
-Electric: Granted Time Iterative: 9,  Iteration Status: 0
-Electric: Time Step 8 Iteration Completed!
-Gas: Time Step 8 Iteration Completed!
-
-Electric-Sent: Time 9 	 iter 0 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 9, iteration: 0
-
-Gas-Sent: Time 9 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 9 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 9, iteration: 0
-Electric: Granted Time Iterative: 9,  Iteration Status: 3
-Gas: Granted Time Iterative: 9, Iteration Status: 3
-Gas-Received: Time 9 	 iter 0 	 Pthe = 777.7778 [MW]
-Electric-Recieved: Time 9 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric-Recieved: Time 9 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 9 	 iter 1 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 9, iteration: 1
-Gas-Event: Time 9 	 iter 0 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 9 	 iter 1 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 9 	 iter 1 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 9, iteration: 1
-Electric: Granted Time Iterative: 9,  Iteration Status: 3
-Gas: Granted Time Iterative: 9, Iteration Status: 3
-Gas-Received: Time 9 	 iter 1 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 9 	 iter 1 	 Pthg = 777.7778 [MW]
-
-Gas-Sent: Time 9 	 iter 2 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 9 	 iter 2 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 9, iteration: 2
-Electric-Recieved: Time 9 	 iter 1 	 Reserve = 222.2222 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 9 	 iter 2 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 9, iteration: 2
-Electric: Granted Time Iterative: 9,  Iteration Status: 3
-Electric-Recieved: Time 9 	 iter 2 	 Pthg = 777.7778 [MW]
-Electric-Recieved: Time 9 	 iter 2 	 Reserve = 222.2222 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 9 	 iter 3 	 Pthe = 777.7778 [MW] 	 P = 70.0000 [MW]
-Electric: Requested Time Iterative: 9, iteration: 3
-Gas: Granted Time Iterative: 9, Iteration Status: 3
-Gas-Received: Time 9 	 iter 2 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 9 	 iter 3 	 Pthg = 777.7778 [MW]
-Gas-Sent: Time 9 	 iter 3 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 9, iteration: 3
-Electric: Granted Time Iterative: 9,  Iteration Status: 3
-Gas: Granted Time Iterative: 9, Iteration Status: 3
-Gas-Received: Time 9 	 iter 3 	 Pthe = 777.7778 [MW]
-Gas - HasVioltation?: False
-Electric-Recieved: Time 9 	 iter 3 	 Pthg = 777.7778 [MW]
-Gas: Time Step 9 Converged!
-Electric-Recieved: Time 9 	 iter 3 	 Reserve = 222.2222 [MW]
-Gas: Requested Time Iterative: 9, iteration: 3
-Electric - HasVioltation?: False
-Electric: Time Step 9 Converged!
-Electric: Requested Time Iterative: 9, iteration: 3
-Gas: Granted Time Iterative: 10, Iteration Status: 0
-Gas: Time Step 9 Iteration Completed!
-
-Gas-Sent: Time 10 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Sent: Time 10 	 iter 0 	 Reserve = 1000.0000 [MW]
-Gas: Requested Time Iterative: 10, iteration: 0
-Electric: Granted Time Iterative: 10,  Iteration Status: 0
-Electric: Time Step 9 Iteration Completed!
-
-Electric-Sent: Time 10 	 iter 0 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
-Electric: Requested Time Iterative: 10, iteration: 0
-Gas: Granted Time Iterative: 10, Iteration Status: 3
-Electric: Granted Time Iterative: 10,  Iteration Status: 3
-Gas-Received: Time 10 	 iter 0 	 Pthe = 583.3333 [MW]
-Gas-Event: Time 10 	 iter 0 	 Pthe = 583.3333 [MW]
-Electric-Recieved: Time 10 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas - HasVioltation?: True
-Electric-Recieved: Time 10 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Gas-Sent: Time 10 	 iter 1 	 Pthg = 583.3333 [MW]
-
-Electric-Sent: Time 10 	 iter 1 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
-Gas-Sent: Time 10 	 iter 1 	 Reserve = 416.6667 [MW]
-Gas: Requested Time Iterative: 10, iteration: 1
-Electric: Requested Time Iterative: 10, iteration: 1
-Electric: Granted Time Iterative: 10,  Iteration Status: 3
-Electric-Recieved: Time 10 	 iter 1 	 Pthg = 583.3333 [MW]
-Electric-Recieved: Time 10 	 iter 1 	 Reserve = 416.6667 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 10 	 iter 2 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
-Electric: Requested Time Iterative: 10, iteration: 2
-Gas: Granted Time Iterative: 10, Iteration Status: 3
-Gas-Received: Time 10 	 iter 1 	 Pthe = 583.3333 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 10 	 iter 2 	 Pthg = 583.3333 [MW]
-Gas-Sent: Time 10 	 iter 2 	 Reserve = 416.6667 [MW]
-Gas: Requested Time Iterative: 10, iteration: 2
-Electric: Granted Time Iterative: 10,  Iteration Status: 3
-Gas: Granted Time Iterative: 10, Iteration Status: 3
-Electric-Recieved: Time 10 	 iter 2 	 Pthg = 583.3333 [MW]
-Electric-Recieved: Time 10 	 iter 2 	 Reserve = 416.6667 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 10 	 iter 3 	 Pthe = 583.3333 [MW] 	 P = 60.0000 [MW]
-Electric: Requested Time Iterative: 10, iteration: 3
-Gas-Received: Time 10 	 iter 2 	 Pthe = 583.3333 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 10 	 iter 3 	 Pthg = 583.3333 [MW]
-Gas-Sent: Time 10 	 iter 3 	 Reserve = 416.6667 [MW]
-Gas: Requested Time Iterative: 10, iteration: 3
-Electric: Granted Time Iterative: 10,  Iteration Status: 3
-Electric-Recieved: Time 10 	 iter 3 	 Pthg = 583.3333 [MW]
-Electric-Recieved: Time 10 	 iter 3 	 Reserve = 416.6667 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 10 Converged!
-Electric: Requested Time Iterative: 10, iteration: 3
-Gas: Granted Time Iterative: 10, Iteration Status: 3
-Gas-Received: Time 10 	 iter 3 	 Pthe = 583.3333 [MW]
-Gas - HasVioltation?: False
-Gas: Time Step 10 Converged!
-Gas: Requested Time Iterative: 10, iteration: 3
-Gas: Granted Time Iterative: 11, Iteration Status: 0
-Gas: Time Step 10 Iteration Completed!
-Electric: Granted Time Iterative: 11,  Iteration Status: 0
-
-Gas-Sent: Time 11 	 iter 0 	 Pthg = 200.0000 [MW]
-Electric: Time Step 10 Iteration Completed!
-Gas-Sent: Time 11 	 iter 0 	 Reserve = 1000.0000 [MW]
-
-Electric-Sent: Time 11 	 iter 0 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
-Electric: Requested Time Iterative: 11, iteration: 0
-Gas: Requested Time Iterative: 11, iteration: 0
-Electric: Granted Time Iterative: 11,  Iteration Status: 3
-Gas: Granted Time Iterative: 11, Iteration Status: 3
-Electric-Recieved: Time 11 	 iter 0 	 Pthg = 200.0000 [MW]
-Gas-Received: Time 11 	 iter 0 	 Pthe = 416.6667 [MW]
-Electric-Recieved: Time 11 	 iter 0 	 Reserve = 1000.0000 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 11 	 iter 1 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
-Electric: Requested Time Iterative: 11, iteration: 1
-Gas-Event: Time 11 	 iter 0 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 11 	 iter 1 	 Pthg = 416.6667 [MW]
-Gas-Sent: Time 11 	 iter 1 	 Reserve = 583.3333 [MW]
-Gas: Requested Time Iterative: 11, iteration: 1
-Gas: Granted Time Iterative: 11, Iteration Status: 3
-Gas-Received: Time 11 	 iter 1 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: True
-
-Gas-Sent: Time 11 	 iter 2 	 Pthg = 416.6667 [MW]
-Gas-Sent: Time 11 	 iter 2 	 Reserve = 583.3333 [MW]
-Gas: Requested Time Iterative: 11, iteration: 2
-Electric: Granted Time Iterative: 11,  Iteration Status: 3
-Electric-Recieved: Time 11 	 iter 1 	 Pthg = 416.6667 [MW]
-Electric-Recieved: Time 11 	 iter 1 	 Reserve = 583.3333 [MW]
-Electric - HasVioltation?: True
-
-Electric-Sent: Time 11 	 iter 2 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
-Electric: Requested Time Iterative: 11, iteration: 2
-Electric: Granted Time Iterative: 11,  Iteration Status: 3
-Electric-Recieved: Time 11 	 iter 2 	 Pthg = 416.6667 [MW]
-Gas: Granted Time Iterative: 11, Iteration Status: 3
-Electric-Recieved: Time 11 	 iter 2 	 Reserve = 583.3333 [MW]
-Electric - HasVioltation?: True
-Gas-Received: Time 11 	 iter 2 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: True
-
-Electric-Sent: Time 11 	 iter 3 	 Pthe = 416.6667 [MW] 	 P = 50.0000 [MW]
-Electric: Requested Time Iterative: 11, iteration: 3
-
-Gas-Sent: Time 11 	 iter 3 	 Pthg = 416.6667 [MW]
-Gas-Sent: Time 11 	 iter 3 	 Reserve = 583.3333 [MW]
-Gas: Requested Time Iterative: 11, iteration: 3
-Electric: Granted Time Iterative: 11,  Iteration Status: 3
-Gas: Granted Time Iterative: 11, Iteration Status: 3
-Electric-Recieved: Time 11 	 iter 3 	 Pthg = 416.6667 [MW]
-Electric-Recieved: Time 11 	 iter 3 	 Reserve = 583.3333 [MW]
-Electric - HasVioltation?: False
-Electric: Time Step 11 Converged!
-Gas-Received: Time 11 	 iter 3 	 Pthe = 416.6667 [MW]
-Gas - HasVioltation?: False
-Electric: Requested Time Iterative: 11, iteration: 3
-Gas: Time Step 11 Converged!
-Gas: Requested Time Iterative: 11, iteration: 3
-Electric: Granted Time Iterative: 12,  Iteration Status: 0
-Gas: Granted Time Iterative: 12, Iteration Status: 0
-Gas: Time Step 11 Iteration Completed!
-Electric: Time Step 11 Iteration Completed!
-
-Electric: Requested Time: 13
-
-Gas: Requested Time: 13
-Electric: Federate finalized
-Gas: Federate finalized
-GasElectric: Broker disconnected
-Electric: the solution diverged at the following time steps:
-Electric: Time-step 2
-Electric: The total number of diverging time steps = 1
-Gas: the solution diverged at the following time steps:
-Gas: Time-step 2
-
- Gas: The total number of diverging time steps = 1
+Gas: Time Step 3 Converged!
+Gas: Requested Time Iterative: 3, iteration: 3
+Gas: Granted Time Iterative: 3, Iteration Status: 0
